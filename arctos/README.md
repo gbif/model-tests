@@ -21,16 +21,59 @@ sudo pip3 install psycopg2
 
 ## load into pg
 ```
-csvsql --db postgresql:///arctos --insert /Users/tim/Desktop/Arctos/material_entity.csv      
-csvsql --db postgresql:///arctos --insert /Users/tim/Desktop/Arctos/material_entity_assertion.csv      
+csvsql --db postgresql:///arctos --insert ./files/agent.csv
+csvsql --db postgresql:///arctos --insert ./files/agent_identifier.csv
+csvsql --db postgresql:///arctos --insert ./files/collection.csv
+csvsql --db postgresql:///arctos --insert ./files/digital_entity.csv
+csvsql --db postgresql:///arctos --insert ./files/digital_entity_assertion.csv
+csvsql --db postgresql:///arctos --insert ./files/entity_assertion.csv
+csvsql --db postgresql:///arctos --insert ./files/entity_of_interest.csv
+csvsql --db postgresql:///arctos --insert ./files/entity_of_interest_agent_role.csv
+csvsql --db postgresql:///arctos --insert ./files/entity_of_interest_event.csv
+csvsql --db postgresql:///arctos --insert ./files/entity_of_interest_identifier.csv
+csvsql --db postgresql:///arctos --insert ./files/entity_relationship.csv
+csvsql --db postgresql:///arctos --insert ./files/event.csv
+csvsql --db postgresql:///arctos --insert ./files/georeference.csv
+csvsql --db postgresql:///arctos --insert ./files/identification.csv
+csvsql --db postgresql:///arctos --insert ./files/identification_agent_role.csv
+csvsql --db postgresql:///arctos --insert ./files/identification_citation.csv
+csvsql --db postgresql:///arctos --insert ./files/identification_material.csv
+csvsql --db postgresql:///arctos --insert ./files/location.csv
+csvsql --db postgresql:///arctos --insert ./files/location_assertion.csv
+csvsql --db postgresql:///arctos --insert ./files/material_entity.csv
+csvsql --db postgresql:///arctos --insert ./files/material_entity_assertion.csv
+csvsql --db postgresql:///arctos --insert ./files/reference_agent_role.csv
+csvsql --db postgresql:///arctos --insert ./files/references.csv
 ```
 
-## add some foreign keys
+## add unique and foreign keys
 ```
 > psql arctos    
 \d
 \d material_entity
 \d material_entity_assertion
+
+
+ALTER TABLE agent ADD CONSTRAINT pk_agent UNIQUE ("agentID");
+ALTER TABLE collection ADD CONSTRAINT pk_collection UNIQUE ("collectionID");
+ALTER TABLE digital_entity ADD CONSTRAINT pk_digital_entity UNIQUE ("digitalEntityID");
+ALTER TABLE entity_of_interest ADD CONSTRAINT pk_entity UNIQUE ("entityID");
+ALTER TABLE event ADD CONSTRAINT pk_event UNIQUE ("eventID");
+ALTER TABLE location ADD CONSTRAINT pk_location UNIQUE ("locationID");
+ALTER TABLE entity_relationship ADD CONSTRAINT pk_entity_relationshipID UNIQUE ("entityRelationshipID");
+
+
+ALTER TABLE agent_identifier ADD CONSTRAINT fk_agent FOREIGN KEY ("agentID") REFERENCES agent ("agentID");
+ALTER TABLE digital_entity_assertion ADD CONSTRAINT fk_digital_entity FOREIGN KEY ("digitalEntityID") REFERENCES digital_entity ("digitalEntityID");
+ALTER TABLE entity_assertion ADD CONSTRAINT fk_entity_of_interest FOREIGN KEY ("entityID") REFERENCES entity_of_interest ("entityID");
+ALTER TABLE entity_of_interest_agent_role ADD CONSTRAINT fk_eoiar_entity FOREIGN KEY ("entityID") REFERENCES entity_of_interest ("entityID");
+ALTER TABLE entity_of_interest_agent_role ADD CONSTRAINT fk_eoiar_agent FOREIGN KEY ("agentID") REFERENCES agent ("agentID");
+ALTER TABLE entity_of_interest_event ADD CONSTRAINT fk_entity_of_interest_event_event FOREIGN KEY ("eventID") REFERENCES event ("eventID");
+ALTER TABLE entity_of_interest_event ADD CONSTRAINT fk_entity_of_interest_event_entity FOREIGN KEY ("entityID") REFERENCES entity_of_interest ("entityID");
+ALTER TABLE entity_of_interest_identifier ADD CONSTRAINT fk_entity_of_interest_identifier_entity FOREIGN KEY ("entityID") REFERENCES entity_of_interest ("entityID");
+ALTER TABLE entity_relationship ADD CONSTRAINT fk_entity_relationship_depends FOREIGN KEY ("dependsOnEntityRelationshipID") REFERENCES entity_relationship ("entityRelationshipID");
+ALTER TABLE entity_relationship ADD CONSTRAINT fk_entity_relationship_subject FOREIGN KEY ("subjectEntityID") REFERENCES entity_of_interest ("entityID");
+
 
 ALTER TABLE material_entity ADD CONSTRAINT pk UNIQUE ("materialEntityID");
 ALTER TABLE material_entity_assertion ADD CONSTRAINT fk_material_entity FOREIGN KEY ("materialEntityID") REFERENCES material_entity ("materialEntityID");
