@@ -1,0 +1,9 @@
+eventID,locationID,eventType,eventDate,verbatimEventDate,verbatimLocality,verbatimElevation,verbatimDepth,verbatimCoordinates,verbatimLatitude,verbatimLongitude,verbatimCoordinateSystem,verbatimSRS,eventRemarks,protocolDescription,habitat
+1430330,1119141,collection,1984-10-07,07-Oct-1984,"29.5 KM W ROBORE, 475 M; 18D19'S, 60D02'W",,,,,,,,,,
+10100372,10051345,collection,1931-05-02,2 May 1931,"Jess Valley, Modoc County, Calif.",,,,,,,,,,
+10209801,10112026,collection,2004-01-01/2004-12-31,2004,"Daea, Daea-ri, Dongsang-myeon, Wanju-gun, Ceollabuk-do, Korea, 35°58.5N, 127°16.416E",,,,,,,,,,
+10840627,10125413,creation,1930,1930,King Island,,,,,,,,,,
+10845032,10125413,use,1930,not recorded,King Island,,,,,,,,,,
+11579166,11142159,collection,1989-05-27/2020-06-25,"no date, began is locality datefound, end is day of upload","Locality data more refined than county is encumbered, contact collection for details",,,,,,,,,,
+11592134,,collection,,,,,,,,,,,,,
+10256356,10141952,collection,2007-07-14,14 July 2007,"Sangre de Cristo Mountains, 2 miles northeast of Crestone, canyon of North Crestone Creek",,,,Sherman trap,rock outcroppings with pinyon/juniper,,,,,

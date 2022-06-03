@@ -1,0 +1,16 @@
+entityID,agentID,entityAgentRole,entityAgentRoleBegan,entityAgentRoleEnded,entityAgentRoleOrder
+21714980,796,collector,2007-07-14,,1
+21714980,796,preparator,,,2
+29610849,796,collector,2007-07-14,,1
+29610849,796,preparator,,,2
+29610851,796,collector,2007-07-14,,1
+29610851,796,preparator,,,2
+1906948,21256035,collector,1984-10-07,,1
+1906948,690,preparator,,,2
+1906948,690,collector,1984-10-07,,3
+10599395,10001736,collector,1931-05-02,,1
+21176824,10013287,collector,2004-01-01/2004-12-31,,1
+21176824,10012483,preparator,,,2
+29211836,21320856,collector,1989-05-27/2020-06-25,,1
+23825198,21279036,creator,1930,,1
+23825198,21279994,collector,1930,,4

@@ -1,0 +1,11 @@
+locationID,locationAssertionType,locationAssertionValue,locationAssertionValueNumeric,locationAssertionUnit,locationAssertionByAgentID,locationAssertionDate,locationAssertionProtocol,locationAssertionRemarks
+11142159,lithostratigraphic group,Dockum Group,,,,,,"20-30 ft stratigraphically higher, red mudstone"
+11142159,Stage/Age,Carnian,,,,,,
+11142159,site identifier,NMMNH:Paleo:L-860,,,1014941,,,Original type: Site Identifier
+11142159,site identifier,SGL 89-034,,,21301807,1989-05-27,,Original type: Site Collector Number
+11142159,landholder,private,,,,,,
+11142159,site found,Spencer G. Lucas,,,21301807,1989-05-27,,Original Term: Site Found By
+11142159,lithostratigraphic group,Chinle Group,,,,,,
+11142159,biochron,Otischalkian,,,,,,
+11142159,site found,1989-05-27,,,21301807,1989-05-27,,Original Term: Site Found Date
+11142159,lithostratigraphic formation,Colorado City Formation,,,,,,"20-30 ft stratigraphically higher, red mudstone"
