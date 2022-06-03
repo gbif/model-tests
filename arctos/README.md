@@ -58,10 +58,12 @@ ALTER TABLE agent ADD CONSTRAINT pk_agent UNIQUE ("agentID");
 ALTER TABLE collection ADD CONSTRAINT pk_collection UNIQUE ("collectionID");
 ALTER TABLE digital_entity ADD CONSTRAINT pk_digital_entity UNIQUE ("digitalEntityID");
 ALTER TABLE entity_of_interest ADD CONSTRAINT pk_entity UNIQUE ("entityID");
-ALTER TABLE event ADD CONSTRAINT pk_event UNIQUE ("eventID");
-ALTER TABLE location ADD CONSTRAINT pk_location UNIQUE ("locationID");
 ALTER TABLE entity_relationship ADD CONSTRAINT pk_entity_relationshipID UNIQUE ("entityRelationshipID");
-
+ALTER TABLE event ADD CONSTRAINT pk_event UNIQUE ("eventID");
+ALTER TABLE identification ADD CONSTRAINT pk_identification UNIQUE ("identificationID");
+ALTER TABLE location ADD CONSTRAINT pk_location UNIQUE ("locationID");
+ALTER TABLE material_entity ADD CONSTRAINT pk_material_entity UNIQUE ("materialEntityID");
+ALTER TABLE "references" ADD CONSTRAINT pk_references UNIQUE ("referenceID");
 
 ALTER TABLE agent_identifier ADD CONSTRAINT fk_agent FOREIGN KEY ("agentID") REFERENCES agent ("agentID");
 ALTER TABLE digital_entity_assertion ADD CONSTRAINT fk_digital_entity FOREIGN KEY ("digitalEntityID") REFERENCES digital_entity ("digitalEntityID");
@@ -75,7 +77,7 @@ ALTER TABLE entity_relationship ADD CONSTRAINT fk_entity_relationship_depends FO
 ALTER TABLE entity_relationship ADD CONSTRAINT fk_entity_relationship_subject FOREIGN KEY ("subjectEntityID") REFERENCES entity_of_interest ("entityID");
 
 
-ALTER TABLE material_entity ADD CONSTRAINT pk UNIQUE ("materialEntityID");
+
 ALTER TABLE material_entity_assertion ADD CONSTRAINT fk_material_entity FOREIGN KEY ("materialEntityID") REFERENCES material_entity ("materialEntityID");
 ```
 
