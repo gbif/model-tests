@@ -1,0 +1,36 @@
+materialEntityID,materialEntityType,collectionID
+21714980,dwc:Organism,https://arctos.database.museum/collection/DMNS:Mamm
+29610849,dwc:Organism,https://arctos.database.museum/collection/DMNS:Para
+29610851,dwc:Organism,https://arctos.database.museum/collection/DMNS:Para
+1906948,dwc:Organism,https://arctos.database.museum/collection/MSB:Mamm
+10599395,dwc:Organism,https://arctos.database.museum/collection/MVZ:Egg
+21176824,dwc:Organism,https://arctos.database.museum/collection/MVZ:Herp
+29211836,dwc:Organism,https://arctos.database.museum/collection/NMMNH:Paleo
+23825198,"parka, fur",https://arctos.database.museum/collection/UAM:EH
+21714981,"skin, study",https://arctos.database.museum/collection/DMNS:Mamm
+21714982,skeleton,https://arctos.database.museum/collection/DMNS:Mamm
+21714987,baculum,https://arctos.database.museum/collection/DMNS:Mamm
+21714983,"heart, kidney",https://arctos.database.museum/collection/DMNS:Mamm
+21714984,liver,https://arctos.database.museum/collection/DMNS:Mamm
+21714985,liver,https://arctos.database.museum/collection/DMNS:Mamm
+21714986,ectoparasite,https://arctos.database.museum/collection/DMNS:Mamm
+29610850,whole organism,https://arctos.database.museum/collection/DMNS:Para
+29610852,whole organism,https://arctos.database.museum/collection/DMNS:Para
+27237942,liver,https://arctos.database.museum/collection/MSB:Mamm
+1906949,skull,https://arctos.database.museum/collection/MSB:Mamm
+1906951,skin,https://arctos.database.museum/collection/MSB:Mamm
+2147317,karyotype,https://arctos.database.museum/collection/MSB:Mamm
+2147316,kidney,https://arctos.database.museum/collection/MSB:Mamm
+2147315,liver,https://arctos.database.museum/collection/MSB:Mamm
+2782031,liver,https://arctos.database.museum/collection/MSB:Mamm
+1906950,skeleton,https://arctos.database.museum/collection/MSB:Mamm
+2147319,"heart, kidney",https://arctos.database.museum/collection/MSB:Mamm
+27249945,karyotype,https://arctos.database.museum/collection/MSB:Mamm
+2147318,liver,https://arctos.database.museum/collection/MSB:Mamm
+3002162,liver,https://arctos.database.museum/collection/MSB:Mamm
+27237943,liver,https://arctos.database.museum/collection/MSB:Mamm
+21261239,egg,https://arctos.database.museum/collection/MVZ:Egg
+21176825,whole organism,https://arctos.database.museum/collection/MVZ:Herp
+29226084,bone,https://arctos.database.museum/collection/NMMNH:Paleo
+23825199,object,https://arctos.database.museum/collection/UAM:EH
+23825200,media,https://arctos.database.museum/collection/UAM:EH
