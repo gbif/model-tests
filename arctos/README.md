@@ -49,10 +49,6 @@ csvsql --db postgresql:///arctos --insert ./files/references.csv
 ## add unique and foreign keys
 ```
 > psql arctos    
-\d
-\d material_entity
-\d material_entity_assertion
-
 
 ALTER TABLE agent ADD CONSTRAINT pk_agent UNIQUE ("agentID");
 ALTER TABLE collection ADD CONSTRAINT pk_collection UNIQUE ("collectionID");
@@ -60,7 +56,7 @@ ALTER TABLE digital_entity ADD CONSTRAINT pk_digital_entity UNIQUE ("digitalEnti
 ALTER TABLE entity_of_interest ADD CONSTRAINT pk_entity UNIQUE ("entityID");
 ALTER TABLE entity_relationship ADD CONSTRAINT pk_entity_relationshipID UNIQUE ("entityRelationshipID");
 ALTER TABLE event ADD CONSTRAINT pk_event UNIQUE ("eventID");
-ALTER TABLE identification ADD CONSTRAINT pk_identification UNIQUE ("identificationID");
+	ALTER TABLE identification ADD CONSTRAINT pk_identification UNIQUE ("identificationID");
 ALTER TABLE location ADD CONSTRAINT pk_location UNIQUE ("locationID");
 ALTER TABLE material_entity ADD CONSTRAINT pk_material_entity UNIQUE ("materialEntityID");
 ALTER TABLE "references" ADD CONSTRAINT pk_references UNIQUE ("referenceID");
@@ -74,11 +70,23 @@ ALTER TABLE entity_of_interest_event ADD CONSTRAINT fk_entity_of_interest_event_
 ALTER TABLE entity_of_interest_event ADD CONSTRAINT fk_entity_of_interest_event_entity FOREIGN KEY ("entityID") REFERENCES entity_of_interest ("entityID");
 ALTER TABLE entity_of_interest_identifier ADD CONSTRAINT fk_entity_of_interest_identifier_entity FOREIGN KEY ("entityID") REFERENCES entity_of_interest ("entityID");
 ALTER TABLE entity_relationship ADD CONSTRAINT fk_entity_relationship_depends FOREIGN KEY ("dependsOnEntityRelationshipID") REFERENCES entity_relationship ("entityRelationshipID");
-ALTER TABLE entity_relationship ADD CONSTRAINT fk_entity_relationship_subject FOREIGN KEY ("subjectEntityID") REFERENCES entity_of_interest ("entityID");
-
-
-
+	ALTER TABLE entity_relationship ADD CONSTRAINT fk_entity_relationship_subject FOREIGN KEY ("subjectEntityID") REFERENCES entity_of_interest ("entityID");
+	ALTER TABLE entity_relationship ADD CONSTRAINT fk_entity_relationship_object FOREIGN KEY ("objectEntityID") REFERENCES entity_of_interest ("entityID");
+ALTER TABLE event ADD CONSTRAINT fk_event_location FOREIGN KEY ("locationID") REFERENCES location ("locationID");
+ALTER TABLE georeference ADD CONSTRAINT fk_georeference_location FOREIGN KEY ("locationID") REFERENCES location ("locationID");
+	ALTER TABLE identification_agent_role ADD CONSTRAINT fk_identification_agent_role_identification FOREIGN KEY ("identificationID") REFERENCES identification ("identificationID");
+	ALTER TABLE identification_agent_role ADD CONSTRAINT fk_identification_agent_role_agent FOREIGN KEY ("agentID") REFERENCES agent ("agentID");	
+	ALTER TABLE identification_citation ADD CONSTRAINT fk_identification_citation_identification FOREIGN KEY ("identificationID") REFERENCES identification ("identificationID");	
+ALTER TABLE identification_citation ADD CONSTRAINT fk_identification_citation_references FOREIGN KEY ("identificationCitationReferenceID") REFERENCES "references" ("referenceID");		
+	ALTER TABLE identification_material ADD CONSTRAINT fk_identification_material_identification FOREIGN KEY ("identificationID") REFERENCES identification ("identificationID");	
+ALTER TABLE identification_material ADD CONSTRAINT fk_identification_material_material FOREIGN KEY ("materialEntityID") REFERENCES material_entity ("materialEntityID");		
+ALTER TABLE location_assertion ADD CONSTRAINT fk_location_assertion_location FOREIGN KEY ("locationID") REFERENCES location ("locationID");		
+ALTER TABLE material_entity ADD CONSTRAINT fk_material_entity_collection FOREIGN KEY ("collectionID") REFERENCES collection ("collectionID");
 ALTER TABLE material_entity_assertion ADD CONSTRAINT fk_material_entity FOREIGN KEY ("materialEntityID") REFERENCES material_entity ("materialEntityID");
+ALTER TABLE reference_agent_role ADD CONSTRAINT fk_reference_agent_role_reference FOREIGN KEY ("referenceID") REFERENCES "references" ("referenceID");
+ALTER TABLE reference_agent_role ADD CONSTRAINT fk_reference_agent_role_agent FOREIGN KEY ("agentID") REFERENCES agent ("agentID");	
+
+
 ```
 
 ## setup the graphql server (I have node setup already)
