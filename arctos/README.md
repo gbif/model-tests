@@ -44,6 +44,8 @@ csvsql --db postgresql:///arctos --insert ./files/material_entity.csv
 csvsql --db postgresql:///arctos --insert ./files/material_entity_assertion.csv
 csvsql --db postgresql:///arctos --insert ./files/reference_agent_role.csv
 csvsql --db postgresql:///arctos --insert ./files/references.csv
+csvsql --db postgresql:///arctos --insert ./files/taxon.csv
+csvsql --db postgresql:///arctos --insert ./files/taxon_identification.csv
 ```
 
 ## add unique and foreign keys
@@ -56,10 +58,11 @@ ALTER TABLE digital_entity ADD CONSTRAINT pk_digital_entity UNIQUE ("digitalEnti
 ALTER TABLE entity_of_interest ADD CONSTRAINT pk_entity UNIQUE ("entityID");
 ALTER TABLE entity_relationship ADD CONSTRAINT pk_entity_relationshipID UNIQUE ("entityRelationshipID");
 ALTER TABLE event ADD CONSTRAINT pk_event UNIQUE ("eventID");
-	ALTER TABLE identification ADD CONSTRAINT pk_identification UNIQUE ("identificationID");
+ALTER TABLE identification ADD CONSTRAINT pk_identification UNIQUE ("identificationID");
 ALTER TABLE location ADD CONSTRAINT pk_location UNIQUE ("locationID");
 ALTER TABLE material_entity ADD CONSTRAINT pk_material_entity UNIQUE ("materialEntityID");
 ALTER TABLE "references" ADD CONSTRAINT pk_references UNIQUE ("referenceID");
+ALTER TABLE "taxon" ADD UNIQUE ("taxonID");
 
 ALTER TABLE agent_identifier ADD FOREIGN KEY ("agentID") REFERENCES agent ("agentID");
 ALTER TABLE digital_entity_assertion ADD FOREIGN KEY ("digitalEntityID") REFERENCES digital_entity ("digitalEntityID");
@@ -68,23 +71,25 @@ ALTER TABLE entity_of_interest_agent_role ADD FOREIGN KEY ("entityID") REFERENCE
 ALTER TABLE entity_of_interest_agent_role ADD FOREIGN KEY ("agentID") REFERENCES agent ("agentID");
 ALTER TABLE entity_of_interest_event ADD FOREIGN KEY ("eventID") REFERENCES event ("eventID");
 ALTER TABLE entity_of_interest_event ADD FOREIGN KEY ("entityID") REFERENCES entity_of_interest ("entityID");
-ALTER TABLE entity_of_interest_identifier FOREIGN KEY ("entityID") REFERENCES entity_of_interest ("entityID");
+ALTER TABLE entity_of_interest_identifier ADD FOREIGN KEY ("entityID") REFERENCES entity_of_interest ("entityID");
 ALTER TABLE entity_relationship ADD FOREIGN KEY ("dependsOnEntityRelationshipID") REFERENCES entity_relationship ("entityRelationshipID");
-	ALTER TABLE entity_relationship ADD FOREIGN KEY ("subjectEntityID") REFERENCES entity_of_interest ("entityID");
+ALTER TABLE entity_relationship ADD FOREIGN KEY ("subjectEntityID") REFERENCES entity_of_interest ("entityID");
 	ALTER TABLE entity_relationship ADD FOREIGN KEY ("objectEntityID") REFERENCES entity_of_interest ("entityID");
 ALTER TABLE event ADD FOREIGN KEY ("locationID") REFERENCES location ("locationID");
 ALTER TABLE georeference ADD FOREIGN KEY ("locationID") REFERENCES location ("locationID");
-	ALTER TABLE identification_agent_role ADD FOREIGN KEY ("identificationID") REFERENCES identification ("identificationID");
+ALTER TABLE identification_agent_role ADD FOREIGN KEY ("identificationID") REFERENCES identification ("identificationID");
 	ALTER TABLE identification_agent_role ADD FOREIGN KEY ("agentID") REFERENCES agent ("agentID");	
-	ALTER TABLE identification_citation ADD FOREIGN KEY ("identificationID") REFERENCES identification ("identificationID");	
+ALTER TABLE identification_citation ADD FOREIGN KEY ("identificationID") REFERENCES identification ("identificationID");	
 ALTER TABLE identification_citation ADD FOREIGN KEY ("identificationCitationReferenceID") REFERENCES "references" ("referenceID");		
-	ALTER TABLE identification_material ADD FOREIGN KEY ("identificationID") REFERENCES identification ("identificationID");	
+ALTER TABLE identification_material ADD FOREIGN KEY ("identificationID") REFERENCES identification ("identificationID");	
 ALTER TABLE identification_material ADD FOREIGN KEY ("materialEntityID") REFERENCES material_entity ("materialEntityID");		
 ALTER TABLE location_assertion ADD FOREIGN KEY ("locationID") REFERENCES location ("locationID");		
 ALTER TABLE material_entity ADD FOREIGN KEY ("collectionID") REFERENCES collection ("collectionID");
 ALTER TABLE material_entity_assertion ADD FOREIGN KEY ("materialEntityID") REFERENCES material_entity ("materialEntityID");
 ALTER TABLE reference_agent_role ADD FOREIGN KEY ("referenceID") REFERENCES "references" ("referenceID");
-ALTER TABLE reference_agent_role ADD FOREIGN KEY ("agentID") REFERENCES agent ("agentID");	
+ALTER TABLE reference_agent_role ADD FOREIGN KEY ("agentID") REFERENCES agent ("agentID");
+ALTER TABLE taxon_identification ADD FOREIGN KEY ("taxonID") REFERENCES taxon ("taxonID");
+ALTER TABLE taxon_identification ADD FOREIGN KEY ("identificationID") REFERENCES identification ("identificationID");
 
 ```
 
