@@ -1,43 +1,39 @@
-identificationID,identificationType,taxonID,verbatimIdentification,identificationQualifier,typeStatus,dateIdentified,identificationVerificationStatus,identificationRemarks
-11048323,features,1076684,Tamias quadrivittatus,,,2007-07-13,high,Former nature_of_id: expert.
-14911906,fine features,660,Hoplopleura arboricola,,,2015,high,
-14911907,fine features,10927560,Ixodidae,,,2015,high,
-11398705,features,1076670,Andalgalomys pearsoni dorbignyi,,,1987-09-04,high,Former nature_of_id: type specimen.
-11446499,molecular,1074868,Andalgalomys pearsoni,,,,,Former nature_of_id: molecular data.
-11446473,molecular,1074868,Andalgalomys pearsoni,,,,,Former nature_of_id: molecular data.
-11446628,features,1076670,Andalgalomys pearsoni dorbignyi,,,,high,Former nature_of_id: type specimen.
-11446627,unknown,1074868,Andalgalomys pearsoni,,,,high,Former nature_of_id: published referral.
-12217743,molecular,1076670,Andalgalomys pearsoni dorbignyi,,,,,Former nature_of_id: molecular data.
-11446430,molecular,1076670,Andalgalomys pearsoni dorbignyi,,,,,ID from citation in D'Elia et al. 2005; Former nature_of_id: molecular data.
-11446651,features,1074868,Andalgalomys pearsoni,,,,high,Former nature_of_id: type specimen.
-11446498,molecular,1074868,Andalgalomys pearsoni,,,,,Weir and Schulter 2007; Former nature_of_id: molecular data.
-11386319,molecular,1074868,Andalgalomys pearsoni,,,,,ID from citation in Anderson and Yates 2000.; Former nature_of_id: molecular data.
-11387735,molecular,1074868,Andalgalomys pearsoni,,,,,ID from citation in Haag et al. 2007.; Former nature_of_id: molecular data.
-11446451,molecular,1076670,Andalgalomys pearsoni dorbignyi,,,,,ID from D'Elia et al 2003; Former nature_of_id: molecular data.
-11446626,features,10939809,Graomys pearsoni dorbignyi,,,,high,Former nature_of_id: type specimen.
-11385633,molecular,1074868,Andalgalomys pearsoni,,,,,ID from citation in Salazar-Bravo et al. 2001.; Former nature_of_id: molecular data.
-11446496,molecular,1074868,Andalgalomys pearsoni,,,2003,,Former nature_of_id: molecular data.
-11446495,molecular,1074868,Andalgalomys pearsoni,,,2005,,Former nature_of_id: molecular data.
-11951253,molecular,1076670,Andalgalomys pearsoni dorbignyi,,,2012,,Former nature_of_id: molecular data.
-12853328,unknown,1076670,Andalgalomys pearsoni dorbignyi,,,2012,high,Former nature_of_id: published referral.
-11951249,molecular,1076670,Andalgalomys pearsoni dorbignyi,,,2013,,Former nature_of_id: molecular data.
-12217300,molecular,1076670,Andalgalomys pearsoni dorbignyi,,,2013,,Former nature_of_id: molecular data.
-12219250,molecular,1076670,Andalgalomys pearsoni dorbignyi,,,2014,,Former nature_of_id: molecular data.
-14238974,molecular,1076670,Andalgalomys pearsoni dorbignyi,,,2015,,Former nature_of_id: molecular data.
-12853045,molecular,1076670,Andalgalomys pearsoni dorbignyi,,,2015,,Former nature_of_id: molecular data.
-12853067,molecular,1076670,Andalgalomys pearsoni dorbignyi,,,2016,,Former nature_of_id: molecular data.
-14238880,molecular,1076670,Andalgalomys pearsoni dorbignyi,,,2016,,Former nature_of_id: molecular data.
-14240625,molecular,1076670,Andalgalomys pearsoni dorbignyi,,,2016,,Former nature_of_id: molecular data.
-14240439,molecular,1076670,Andalgalomys pearsoni dorbignyi,,,2017,,Former nature_of_id: molecular data.
-14240450,molecular,1076670,Andalgalomys pearsoni dorbignyi,,,2018,,Former nature_of_id: molecular data.
-10179143,unknown,70539,Grus canadensis tabida,,,1999-01-27,,Former nature_of_id: legacy.
-14152002,revised taxonomy,11359103,Antigone canadensis tabida,,,2018-12-17,,
-10766424,features,2031754,Karsenia koreana,,,,high,Former nature_of_id: type specimen.
-11394878,features,2031754,Karsenia koreana,,,,high,ID from citation in Vieites et al. 2007.; Former nature_of_id: type specimen.
-11391085,features,2031754,Karsenia koreana,,,,high,ID from citation in Min et al. 2005.; Former nature_of_id: type specimen.
-14719184,unknown,3161417,Reptilia,,,,,
-12043839,unknown,27,"Parka, Fur",,,,,Former nature_of_id: legacy.
-12043839,unknown,36,"Parka, Fur",,,,,Former nature_of_id: legacy.
-12043839,unknown,51,"Parka, Fur",,,,,Former nature_of_id: legacy.
-12043839,unknown,2079914,"Parka, Fur",,,,,Former nature_of_id: legacy.
-12043839,unknown,3164576,"Parka, Fur",,,,,Former nature_of_id: legacy.
+identificationID,identificationType,taxaFormula,verbatimIdentification,identificationQualifier,typeStatus,dateIdentified,identificationVerificationStatus,identificationRemarks,isAcceptedIdentification
+11048323,features,A,Tamias quadrivittatus,,,2007-07-13,high,Former nature_of_id: expert.,1
+14911906,fine features,A,Hoplopleura arboricola,,,2015,high,,1
+14911907,fine features,A,Ixodidae,,,2015,high,,1
+11398705,features,A,Andalgalomys pearsoni dorbignyi,,,1987-09-04,high,Former nature_of_id: type specimen.,1
+11446499,molecular,A,Andalgalomys pearsoni,,,,,Former nature_of_id: molecular data.,0
+11446473,molecular,A,Andalgalomys pearsoni,,,,,Former nature_of_id: molecular data.,0
+11446628,features,A,Andalgalomys pearsoni dorbignyi,,,,high,Former nature_of_id: type specimen.,0
+11446627,unknown,A,Andalgalomys pearsoni,,,,high,Former nature_of_id: published referral.,0
+12217743,molecular,A,Andalgalomys pearsoni dorbignyi,,,,,Former nature_of_id: molecular data.,0
+11446430,molecular,A,Andalgalomys pearsoni dorbignyi,,,,,ID from citation in D'Elia et al. 2005; Former nature_of_id: molecular data.,0
+11446651,features,A,Andalgalomys pearsoni,,,,high,Former nature_of_id: type specimen.,0
+11446498,molecular,A,Andalgalomys pearsoni,,,,,Weir and Schulter 2007; Former nature_of_id: molecular data.,0
+11386319,molecular,A,Andalgalomys pearsoni,,,,,ID from citation in Anderson and Yates 2000.; Former nature_of_id: molecular data.,0
+11387735,molecular,A,Andalgalomys pearsoni,,,,,ID from citation in Haag et al. 2007.; Former nature_of_id: molecular data.,0
+11446451,molecular,A,Andalgalomys pearsoni dorbignyi,,,,,ID from D'Elia et al 2003; Former nature_of_id: molecular data.,0
+11446626,features,A,Graomys pearsoni dorbignyi,,,,high,Former nature_of_id: type specimen.,0
+11385633,molecular,A,Andalgalomys pearsoni,,,,,ID from citation in Salazar-Bravo et al. 2001.; Former nature_of_id: molecular data.,0
+11446496,molecular,A,Andalgalomys pearsoni,,,2003,,Former nature_of_id: molecular data.,0
+11446495,molecular,A,Andalgalomys pearsoni,,,2005,,Former nature_of_id: molecular data.,0
+11951253,molecular,A,Andalgalomys pearsoni dorbignyi,,,2012,,Former nature_of_id: molecular data.,0
+12853328,unknown,A,Andalgalomys pearsoni dorbignyi,,,2012,high,Former nature_of_id: published referral.,0
+11951249,molecular,A,Andalgalomys pearsoni dorbignyi,,,2013,,Former nature_of_id: molecular data.,0
+12217300,molecular,A,Andalgalomys pearsoni dorbignyi,,,2013,,Former nature_of_id: molecular data.,0
+12219250,molecular,A,Andalgalomys pearsoni dorbignyi,,,2014,,Former nature_of_id: molecular data.,0
+14238974,molecular,A,Andalgalomys pearsoni dorbignyi,,,2015,,Former nature_of_id: molecular data.,0
+12853045,molecular,A,Andalgalomys pearsoni dorbignyi,,,2015,,Former nature_of_id: molecular data.,0
+12853067,molecular,A,Andalgalomys pearsoni dorbignyi,,,2016,,Former nature_of_id: molecular data.,0
+14238880,molecular,A,Andalgalomys pearsoni dorbignyi,,,2016,,Former nature_of_id: molecular data.,0
+14240625,molecular,A,Andalgalomys pearsoni dorbignyi,,,2016,,Former nature_of_id: molecular data.,0
+14240439,molecular,A,Andalgalomys pearsoni dorbignyi,,,2017,,Former nature_of_id: molecular data.,0
+14240450,molecular,A,Andalgalomys pearsoni dorbignyi,,,2018,,Former nature_of_id: molecular data.,0
+10179143,unknown,A,Grus canadensis tabida,,,1999-01-27,,Former nature_of_id: legacy.,0
+14152002,revised taxonomy,A,Antigone canadensis tabida,,,2018-12-17,,,1
+10766424,features,A,Karsenia koreana,,,,high,Former nature_of_id: type specimen.,0
+11394878,features,A,Karsenia koreana,,,,high,ID from citation in Vieites et al. 2007.; Former nature_of_id: type specimen.,0
+11391085,features,A,Karsenia koreana,,,,high,ID from citation in Min et al. 2005.; Former nature_of_id: type specimen.,1
+14719184,unknown,A,Reptilia,,,,,,1
+12043839,unknown,A {string},"Parka, Fur",,,,,Former nature_of_id: legacy.,1
