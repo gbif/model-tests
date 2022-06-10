@@ -52,16 +52,16 @@ csvsql --db postgresql:///arctos --insert ./files/taxon_identification.csv
 ```
 > psql arctos    
 
-ALTER TABLE agent ADD CONSTRAINT pk_agent UNIQUE ("agentID");
-ALTER TABLE collection ADD CONSTRAINT pk_collection UNIQUE ("collectionID");
-ALTER TABLE digital_entity ADD CONSTRAINT pk_digital_entity UNIQUE ("digitalEntityID");
-ALTER TABLE entity_of_interest ADD CONSTRAINT pk_entity UNIQUE ("entityID");
-ALTER TABLE entity_relationship ADD CONSTRAINT pk_entity_relationshipID UNIQUE ("entityRelationshipID");
-ALTER TABLE event ADD CONSTRAINT pk_event UNIQUE ("eventID");
-ALTER TABLE identification ADD CONSTRAINT pk_identification UNIQUE ("identificationID");
-ALTER TABLE location ADD CONSTRAINT pk_location UNIQUE ("locationID");
-ALTER TABLE material_entity ADD CONSTRAINT pk_material_entity UNIQUE ("materialEntityID");
-ALTER TABLE "references" ADD CONSTRAINT pk_references UNIQUE ("referenceID");
+ALTER TABLE agent ADD UNIQUE ("agentID");
+ALTER TABLE collection ADD UNIQUE ("collectionID");
+ALTER TABLE digital_entity ADD UNIQUE ("digitalEntityID");
+ALTER TABLE entity_of_interest ADD UNIQUE ("entityID");
+ALTER TABLE entity_relationship ADD UNIQUE ("entityRelationshipID");
+ALTER TABLE event ADD UNIQUE ("eventID");
+ALTER TABLE identification ADD UNIQUE ("identificationID");
+ALTER TABLE location ADD UNIQUE ("locationID");
+ALTER TABLE material_entity ADD UNIQUE ("materialEntityID");
+ALTER TABLE "references" ADD UNIQUE ("referenceID");
 ALTER TABLE "taxon" ADD UNIQUE ("taxonID");
 
 ALTER TABLE agent_identifier ADD FOREIGN KEY ("agentID") REFERENCES agent ("agentID");
