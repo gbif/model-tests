@@ -299,6 +299,9 @@ ALTER TABLE ONLY public.agent_identifier
 ALTER TABLE ONLY public.digital_entity_assertion
     ADD CONSTRAINT "digital_entity_assertion_digitalEntityID_fkey" FOREIGN KEY ("digitalEntityID") REFERENCES public.digital_entity("digitalEntityID");
 
+ALTER TABLE ONLY public.digital_entity_assertion
+    ADD CONSTRAINT "digital_entityy_assertion_digitalEntityAssertionByAgentID_fkey" FOREIGN KEY ("digitalEntityAssertionByAgentID") REFERENCES public.agent("agentID");
+
 ALTER TABLE ONLY public.digital_entity
     ADD CONSTRAINT "digital_entity_collectionID_fkey" FOREIGN KEY ("collectionID") REFERENCES public.collection("collectionID");
 
@@ -313,6 +316,9 @@ ALTER TABLE ONLY public.entity_agent_role
 
 ALTER TABLE ONLY public.entity_assertion
     ADD CONSTRAINT "entity_assertion_entityID_fkey" FOREIGN KEY ("entityID") REFERENCES public.entity("entityID");
+
+ALTER TABLE ONLY public.entity_assertion
+    ADD CONSTRAINT "entity_assertion_entityAssertionByAgentID_fkey" FOREIGN KEY ("entityAssertionByAgentID") REFERENCES public.agent("agentID");
 
 ALTER TABLE ONLY public.entity_event
     ADD CONSTRAINT "entity_event_entityID_fkey" FOREIGN KEY ("entityID") REFERENCES public.entity("entityID");
@@ -361,6 +367,9 @@ ALTER TABLE ONLY public.location_assertion
 
 ALTER TABLE ONLY public.material_entity_assertion
     ADD CONSTRAINT "material_entity_assertion_materialEntityID_fkey" FOREIGN KEY ("materialEntityID") REFERENCES public.material_entity("materialEntityID");
+
+ALTER TABLE ONLY public.material_entity_assertion
+    ADD CONSTRAINT "material_entity_assertion_materialEntityAssertionByAgentID_fkey" FOREIGN KEY ("materialEntityAssertionByAgentID") REFERENCES public.agent("agentID");
 
 ALTER TABLE ONLY public.material_entity
     ADD CONSTRAINT "material_entity_collectionID_fkey" FOREIGN KEY ("collectionID") REFERENCES public.collection("collectionID");
