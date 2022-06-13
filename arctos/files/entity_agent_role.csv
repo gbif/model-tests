@@ -1,4 +1,4 @@
-entityid,agentid,entityagentrole,entityagentrolebegan,entityagentroleended,entityagentroleorder
+entityID,agentID,entityAgentRole,entityAgentRoleBegan,entityAgentRoleEnded,entityAgentRoleOrder
 21714980,796,collector,,,1
 21714980,796,preparator,,,2
 29610849,796,collector,,,1

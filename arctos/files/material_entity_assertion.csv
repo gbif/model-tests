@@ -1,4 +1,4 @@
-materialentityid,materialentityassertiontype,materialentityassertionvalue,materialentityassertionvaluenumeric,materialentityassertionunit,materialentityassertionbyagentid,materialentityassertiondate,materialentityassertionprotocol,materialentityassertionremarks
+materialEntityID,materialEntityAssertionType,materialEntityAssertionValue,materialEntityAssertionValueNumeric,materialEntityAssertionUnit,materialEntityAssertionByAgentID,materialEntityAssertionDate,materialEntityAssertionProtocol,materialEntityAssertionRemarks
 21714984,preservation,frozen,,,,2021-07-01,,Added from original part liver (frozen).
 21714983,preservation,frozen,,,,2021-07-01,,"Added from original part heart, kidney (frozen)."
 21714985,preservation,frozen,,,,2021-07-01,,Added from original part liver (frozen).

@@ -1,4 +1,4 @@
-entityrelationshipid,dependsonentityrelationshipid,subjectentityid,entityrelationshiptype,objectentityid
+entityRelationshipID,dependsOnEntityRelationshipID,subjectEntityID,entityRelationshipType,objectEntityID
 1,,21714980,host of,http://arctos.database.museum/guid/DMNS:Para:664
 2,,21714980,host of,http://arctos.database.museum/guid/DMNS:Para:64
 3,,21714980,host of,http://arctos.database.museum/guid/DMNS:Para:65

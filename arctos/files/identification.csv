@@ -1,4 +1,4 @@
-identificationid,identificationtype,taxaformula,verbatimidentification,identificationqualifier,typestatus,dateidentified,identificationverificationstatus,identificationremarks,isacceptedidentification
+identificationID,identificationType,taxaFormula,verbatimIdentification,identificationQualifier,typeStatus,dateIdentified,identificationVerificationStatus,identificationRemarks,isAcceptedIdentification
 11048323,features,A,Tamias quadrivittatus,,,2007-07-13,high,Former nature_of_id: expert.,1
 14911906,fine features,A,Hoplopleura arboricola,,,2015,high,,1
 14911907,fine features,A,Ixodidae,,,2015,high,,1

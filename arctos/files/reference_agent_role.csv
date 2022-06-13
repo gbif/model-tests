@@ -1,4 +1,4 @@
-referenceid,agentid,referenceagentrole,referenceagentrolebegan,referenceagentroleended,referenceagentroleorder
+referenceID,agentID,referenceAgentRole,referenceAgentRoleBegan,referenceAgentRoleEnded,referenceAgentRoleOrder
 10007361,21301163,author,,,
 10010496,21314876,author,,,
 10006532,10015083,author,,,

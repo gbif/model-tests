@@ -1,4 +1,4 @@
-taxonid,parenttaxonid,scientificname,nomenclaturalcode,taxonrank,kingdom,phylum,class,order,family,subfamily,genericname,specificepithet,infraspecificepithet,scientifcnameauthorship
+taxonID,parentTaxonID,scientificName,nomenclaturalCode,taxonRank,kingdom,phylum,class,order,family,subfamily,genericName,specificEpithet,infraspecificEpithet,scientifcNameAuthorship
 51,,"Gulo gulo (Linnaeus, 1758)",ICZN,species,Animalia,Chordata,Mammalia,Carnivora,Mustelidae,Mustelinae,Gulo,gulo,,"(Linnaeus, 1758)"
 2031754,,"Karsenia koreana Min, Yang, Bonett, Vieites, Brandon and Wake, 2005",ICZN,species,Animalia,Chordata,Amphibia,Caudata,Plethodontidae,,Karsenia,koreana,,"Min, Yang, Bonett, Vieites, Brandon and Wake, 2005"
 1074868,,"Andalgalomys pearsoni (Myers, 1977)",ICZN,species,Animalia,Chordata,Mammalia,Rodentia,Cricetidae,,Andalgalomys,pearsoni,,"(Myers, 1977)"

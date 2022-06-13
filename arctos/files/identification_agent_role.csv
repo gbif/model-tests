@@ -1,4 +1,4 @@
-identificationid,agentid,identificationagentrole,identificationagentrolebegan,identificationagentroleended,identificationagentroleorder
+identificationID,agentID,identificationAgentRole,identificationAgentRoleBegan,identificationAgentRoleEnded,identificationAgentRoleOrder
 11048323,796,determiner,,,1
 14911906,4446,determiner,,,1
 14911907,4446,determiner,,,1

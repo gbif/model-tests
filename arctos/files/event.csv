@@ -1,4 +1,4 @@
-eventid,locationid,eventtype,eventdate,verbatimeventdate,verbatimlocality,verbatimelevation,verbatimdepth,verbatimcoordinates,verbatimlatitude,verbatimlongitude,verbatimcoordinatesystem,verbatimsrs,eventremarks,protocoldescription,habitat
+eventID,locationID,eventType,eventDate,verbatimEventDate,verbatimLocality,verbatimElevation,verbatimDepth,verbatimCoordinates,verbatimLatitude,verbatimLongitude,verbatimCoordinateSystem,verbatimSRS,eventRemarks,protocolDescription,habitat
 1430330,1119141,collection,1984-10-07,07-Oct-1984,"29.5 KM W ROBORE, 475 M; 18D19'S, 60D02'W",,,,,,,,,,
 10100372,10051345,collection,1931-05-02,2 May 1931,"Jess Valley, Modoc County, Calif.",,,,,,,,,,
 10209801,10112026,collection,2004-01-01/2004-12-31,2004,"Daea, Daea-ri, Dongsang-myeon, Wanju-gun, Ceollabuk-do, Korea, 35°58.5N, 127°16.416E",,,,,,,,,,

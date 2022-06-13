@@ -1,4 +1,4 @@
-entityid,entityassertiontype,entityassertionvalue,entityassertionvaluenumeric,entityassertionunit,entityassertionbyagentid,entityassertiondate,entityassertionprotocol,entityassertionremarks
+entityID,entityAssertionType,entityAssertionValue,entityAssertionValueNumeric,entityAssertionUnit,entityAssertionByAgentID,entityAssertionDate,entityAssertionProtocol,entityAssertionRemarks
 21714980,ear from notch,20,20,mm,796,2007-09-27,,
 21714980,hind foot with claw,32,32,mm,796,2007-09-27,,
 21714980,reproductive data,testes: 3x2 mm (abdominal),,,796,2007-09-27,,
