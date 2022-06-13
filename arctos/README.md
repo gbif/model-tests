@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS entity_agent_role ("entityID" character varying, "age
 CREATE TABLE IF NOT EXISTS entity_assertion ("entityID" character varying, "entityAssertionType" character varying, "entityAssertionValue" character varying, "entityAssertionValueNumeric" numeric, "entityAssertionUnit" character varying, "entityAssertionByAgentID" character varying, "entityAssertionDate" character varying, "entityAssertionProtocol" character varying, "entityAssertionRemarks" character varying);
 CREATE TABLE IF NOT EXISTS entity_event ("entityID" character varying, "eventID" character varying);
 CREATE TABLE IF NOT EXISTS entity_identifier ("entityID" character varying, "entityIdentifier" character varying, "entityIdentifierType" character varying);
-CREATE TABLE IF NOT EXISTS entity_relationship ("entityRelationshipID" character varying, "dependsOnEntityRelationshipID" character varying, "subjectEntityID" character varying, "entityRelationshipType" character varying, "objectEntityID" character varying);
+CREATE TABLE IF NOT EXISTS entity_relationship ("entityRelationshipID" character varying, "dependsOnEntityRelationshipID" character varying, "subjectEntityID" character varying, "entityRelationshipType" character varying, "objectEntityID" character varying, "externalObjectEntityID" character varying);
 CREATE TABLE IF NOT EXISTS entity ("entityID" character varying, "entityType" character varying);
 CREATE TABLE IF NOT EXISTS event ("eventID" character varying, "locationID" character varying, "eventType" character varying, "eventDate" character varying, "verbatimEventDate" character varying, "verbatimLocality" character varying, "verbatimElevation" character varying, "verbatimDepth" character varying, "verbatimCoordinates" character varying, "verbatimLatitude" character varying, "verbatimLongitude" character varying, "verbatimCoordinateSystem" character varying, "verbatimSRS" character varying, "eventRemarks" character varying, "protocolDescription" character varying, "habitat" character varying);
 CREATE TABLE IF NOT EXISTS georeference ("locationID" character varying, "decimalLatitude" numeric, "decimalLongitude" numeric, "geodeticDatum" character varying, "coordinateUncertaintyInMeters" numeric, "coordinatePrecision" numeric, "pointRadiusSpatialFit" numeric, "footprintWKT" character varying, "footprintSRS" character varying, "footprintSpatialFit" numeric, "georeferencedBy" character varying, "georeferencedDate" character varying, "georeferenceProtocol" character varying, "georeferenceSources" character varying, "georeferenceRemarks" character varying, "preferredSpatialRepresentation" character varying);
@@ -109,8 +109,8 @@ ALTER TABLE entity_agent_role ADD FOREIGN KEY ("entityID") REFERENCES entity ("e
 ALTER TABLE entity_event ADD FOREIGN KEY ("entityID") REFERENCES entity ("entityID");
 ALTER TABLE entity_identifier ADD FOREIGN KEY ("entityID") REFERENCES entity ("entityID");
 ALTER TABLE entity_relationship ADD FOREIGN KEY ("subjectEntityID") REFERENCES entity ("entityID");
-#ALTER TABLE entity_relationship ADD FOREIGN KEY ("objectEntityID") REFERENCES entity ("entityID");
-ALTER TABLE entity_relationship ADD FOREIGN KEY ("dependsonentityrelationshipID") REFERENCES entity_relationship ("entityRelationshipID");
+ALTER TABLE entity_relationship ADD FOREIGN KEY ("objectEntityID") REFERENCES entity ("entityID");
+ALTER TABLE entity_relationship ADD FOREIGN KEY ("dependsOnEntityRelationshipID") REFERENCES entity_relationship ("entityRelationshipID");
 
 ALTER TABLE digital_entity ADD FOREIGN KEY ("digitalEntityID") REFERENCES entity ("entityID");
 ALTER TABLE digital_entity ADD FOREIGN KEY ("collectionID") REFERENCES collection ("collectionID");
