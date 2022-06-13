@@ -1,4 +1,4 @@
-locationID,locationAssertionType,locationAssertionValue,locationAssertionValueNumeric,locationAssertionUnit,locationAssertionByAgentID,locationAssertionDate,locationAssertionProtocol,locationAssertionRemarks
+locationid,locationassertiontype,locationassertionvalue,locationassertionvaluenumeric,locationassertionunit,locationassertionbyagentid,locationassertiondate,locationassertionprotocol,locationassertionremarks
 11142159,lithostratigraphic group,Dockum Group,,,,,,"20-30 ft stratigraphically higher, red mudstone"
 11142159,Stage/Age,Carnian,,,,,,
 11142159,site identifier,NMMNH:Paleo:L-860,,,1014941,,,Original type: Site Identifier

@@ -1,12 +1,14 @@
-materialEntityID,materialEntityAssertionType,materialEntityAssertionValue,materialEntityAssertionValueNumeric,materialEntityAssertionUnit,materialEntityAssertionByAgentID,materialEntityAssertionDate,materialEntityAssertionProtocol,materialEntityAssertionRemarks
-21714983,preservation,frozen,,,,2021-07-01,,"Added from original part heart, kidney (frozen)."
+materialentityid,materialentityassertiontype,materialentityassertionvalue,materialentityassertionvaluenumeric,materialentityassertionunit,materialentityassertionbyagentid,materialentityassertiondate,materialentityassertionprotocol,materialentityassertionremarks
 21714984,preservation,frozen,,,,2021-07-01,,Added from original part liver (frozen).
+21714983,preservation,frozen,,,,2021-07-01,,"Added from original part heart, kidney (frozen)."
 21714985,preservation,frozen,,,,2021-07-01,,Added from original part liver (frozen).
 21714986,preservation,ethanol,,,,2021-07-01,,Added from original part ectoparasite (ethanol).
 29610850,preservation,"ethanol, 95%",,,796,2021-01-15,,
 29610850,preservation,"ethanol, 95%",,,,2021-07-01,,Added from original part whole organism (95% ethanol).
 29610852,preservation,"ethanol, 75%",,,796,2021-01-15,,
 29610852,preservation,"ethanol, 75%",,,,2021-07-01,,Added from original part whole organism (75% ethanol).
+26462266,preservation,slide,,,,2021-07-01,,Added from original part whole organism (slide).
+29610848,preservation,"ethanol, 95%",,,,2021-07-01,,Added from original part tissue (95% ethanol).
 27237942,preservation,frozen,,,,2021-07-01,,Added from original part liver (frozen).
 2147317,preservation,frozen,,,,2021-07-01,,Added from original part karyotype (frozen).
 2147316,preservation,frozen,,,,2021-07-01,,Added from original part kidney (frozen).

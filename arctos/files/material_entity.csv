@@ -1,7 +1,8 @@
-materialEntityID,materialEntityType,collectionID
+materialentityid,materialentitytype,collectionid
 21714980,dwc:Organism,https://arctos.database.museum/collection/DMNS:Mamm
 29610849,dwc:Organism,https://arctos.database.museum/collection/DMNS:Para
 29610851,dwc:Organism,https://arctos.database.museum/collection/DMNS:Para
+26462265,dwc:Organism,https://arctos.database.museum/collection/DMNS:Para
 1906948,dwc:Organism,https://arctos.database.museum/collection/MSB:Mamm
 10599395,dwc:Organism,https://arctos.database.museum/collection/MVZ:Egg
 21176824,dwc:Organism,https://arctos.database.museum/collection/MVZ:Herp
@@ -16,6 +17,8 @@ materialEntityID,materialEntityType,collectionID
 21714986,ectoparasite,https://arctos.database.museum/collection/DMNS:Mamm
 29610850,whole organism,https://arctos.database.museum/collection/DMNS:Para
 29610852,whole organism,https://arctos.database.museum/collection/DMNS:Para
+26462266,whole organism,https://arctos.database.museum/collection/DMNS:Para
+29610848,tissue,https://arctos.database.museum/collection/DMNS:Para
 27237942,liver,https://arctos.database.museum/collection/MSB:Mamm
 1906949,skull,https://arctos.database.museum/collection/MSB:Mamm
 1906951,skin,https://arctos.database.museum/collection/MSB:Mamm

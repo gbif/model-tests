@@ -1,4 +1,4 @@
-agentID,agentType,preferredAgentName
+agentid,agenttype,preferredagentname
 10014966,person,Ronald M. Bonett
 10014199,person,Michelle S. Koo
 10013287,person,Suh-Yung Yang
@@ -13,7 +13,7 @@ agentID,agentType,preferredAgentName
 21302104,person,Anna Chinn
 10015165,person,David R. Vietes
 21253730,person,O. Ramirez
-1017041,group,Taiana Haag
+1017041,person,Taiana Haag
 21281732,person,Yatiyo Yonenaga-Yassuda
 21263128,person,J. T. Weir
 1014941,organization,New Mexico Museum of Natural History and Science
@@ -41,6 +41,7 @@ agentID,agentType,preferredAgentName
 1010772,person,R. Eduardo Palma
 1017037,person,Loreta B. Freitas
 1008624,person,Jerry W. Dragoo
+10014238,organization,"Museum of Vertebrate Zoology, University of California, Berkeley"
 21281730,person,Maria Jose J. Silva
 21292406,person,Gordon Lau
 21308659,person,Helen K. Pigage
@@ -54,6 +55,7 @@ agentID,agentType,preferredAgentName
 21247732,person,Kevin C. Rowe
 21253199,person,Sarah Hird
 21248458,person,Emmanuel J. P. Douzery
+21282690,person,Erika J. Brock
 4108,person,Enrique P. Lessa
 21256035,other agent,Bolivian Expedition 1984
 10014103,person,Victor Pacheco
@@ -87,7 +89,8 @@ agentID,agentType,preferredAgentName
 21311202,person,Mary Caswell Stoddard
 21248457,person,Dorothee Huchon
 21281731,person,Karen Ventura
-21249313,person,Guy G. Musser
+21249316,person,Juan Jose Martinez
+21249313,person,Guy Graham Musser
 1010660,person,Pablo A. Marquet
 10014794,person,Kristina H. Yamamoto
 21301807,person,Spencer G. Lucas

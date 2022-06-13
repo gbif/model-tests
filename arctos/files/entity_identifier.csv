@@ -1,7 +1,8 @@
-entityID,entityIdentifier,entityIdentifierType
+entityid,entityidentifier,entityidentifiertype
 21714980,https://arctos.database.museum/guid/DMNS:Mamm:11098,Arctos object
 29610849,https://arctos.database.museum/guid/DMNS:Para:64,Arctos object
 29610851,https://arctos.database.museum/guid/DMNS:Para:65,Arctos object
+26462265,http://arctos.database.museum/guid/DMNS:Para:664,Arctos object
 1906948,https://arctos.database.museum/guid/MSB:Mamm:55245,Arctos object
 10599395,https://arctos.database.museum/guid/MVZ:Egg:2547,Arctos object
 21176824,https://arctos.database.museum/guid/MVZ:Herp:246033,Arctos object
@@ -10,6 +11,7 @@ entityID,entityIdentifier,entityIdentifierType
 21714980,11098,catalog number
 29610849,64,catalog number
 29610851,65,catalog number
+26462265,664,catalog number
 1906948,55245,catalog number
 10599395,2547,catalog number
 21176824,246033,catalog number
@@ -17,8 +19,21 @@ entityID,entityIdentifier,entityIdentifierType
 23825198,UA67-133-0001,catalog number
 21714980,JRD423,collector number
 21714980,178,DZTM: Denver Zoology Tissue Mammal
+21714980,http://arctos.database.museum/guid/DMNS:Para:664,DMNS:Para
 21714980,http://www.ncbi.nlm.nih.gov/nuccore/KJ139497,GenBank
+21714980,http://arctos.database.museum/guid/DMNS:Para:64,DMNS:Para
+21714980,http://arctos.database.museum/guid/DMNS:Para:65,DMNS:Para
 21714980,https://datadryad.org/stash/dataset/doi:10.5061/dryad.52mp1,Dryad DOI
+29610849,http://arctos.database.museum/guid/DMNS:Mamm:11098,DMNS:Mamm
+29610849,http://arctos.database.museum/guid/DMNS:Para:664,DMNS:Para
+29610849,http://arctos.database.museum/guid/DMNS:Para:65,DMNS:Para
+29610851,http://arctos.database.museum/guid/DMNS:Mamm:11098,DMNS:Mamm
+29610851,http://arctos.database.museum/guid/DMNS:Para:664,DMNS:Para
+29610851,http://arctos.database.museum/guid/DMNS:Para:64,DMNS:Para
+26462265,178,DZTM: Denver Zoology Tissue Mammal
+26462265,http://arctos.database.museum/guid/DMNS:Mamm:11098,DMNS:Mamm
+26462265,http://arctos.database.museum/guid/DMNS:Para:64,DMNS:Para
+26462265,http://arctos.database.museum/guid/DMNS:Para:65,DMNS:Para
 1906948,12402,NK
 1906948,JAC1457,preparator number
 1906948,http://www.ncbi.nlm.nih.gov/nuccore/AY963176,GenBank
