@@ -383,3 +383,8 @@ ALTER TABLE ONLY public.reference_agent_role
 ALTER TABLE ONLY public.reference_agent_role
     ADD CONSTRAINT "reference_agent_role_referenceID_fkey" FOREIGN KEY ("referenceID") REFERENCES public."references"("referenceID");
 
+ALTER TABLE ONLY public.taxon_identification
+    ADD CONSTRAINT "taxon_identification_taxonID_fkey" FOREIGN KEY ("taxonID") REFERENCES public.taxon("taxonID");
+
+ALTER TABLE ONLY public.taxon_identification
+    ADD CONSTRAINT "taxon_identification_identificationID_fkey" FOREIGN KEY ("identificationID") REFERENCES public.identification("identificationID");
