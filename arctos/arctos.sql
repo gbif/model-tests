@@ -72,7 +72,8 @@ CREATE TABLE public.entity_assertion (
 
 CREATE TABLE public.entity_event (
     "entityID" character varying,
-    "eventID" character varying
+    "eventID" character varying,
+    "establishmentMeans" character varying
 );
 
 CREATE TABLE public.entity_identifier (
