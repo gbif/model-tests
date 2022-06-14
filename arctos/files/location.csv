@@ -1,7 +1,7 @@
-locationID,higherGeographyID,higherGeography,continent,waterBody,islandGroup,island,country,countryCode,stateProvince,county,municipality,locality,minimumElevationInMeters,maximumElevationInMeters,verticalDatum,minimumDepthInMeters,maximumDepthInMeters,minimumDistanceAboveSurfaceInMeters,maximumDistanceAboveSurfaceInMeters,locationAccordingTo,locationRemarks
-1119141,1005063,"South America, Bolivia, Santa Cruz",South America,,,,Bolivia,,Santa Cruz,,,"29.5 KM W ROBORE, 475 M; 18D19'S, 60D02'W",475,475,,,,,,https://en.wikipedia.org/wiki/Santa_Cruz_Department_%28Bolivia%29,
-10051345,1001631,"North America, United States, California, Modoc County",North America,,,,United States,,California,Modoc County,,Jess Valley,,,,,,,,"http://en.wikipedia.org/wiki/Modoc_County,_California",
-10112026,10000403,"Asia, Korea, South Cholla Province",Asia,,,,Korea,,South Cholla Province,,,"Daea, Daea-ri, Dongsang-myeon, Wanju-gun",,,,,,,,Museum of Vertebrate Zoology,
-10125413,121,"North America, United States, Alaska",North America,,,,United States,,Alaska,,,King Island,,,,,,,,https://en.wikipedia.org/wiki/Alaska,
-10141952,1720,"North America, United States, Colorado, Saguache County",North America,,,,United States,,Colorado,Saguache County,,"Sangre de Cristo Mountains, 2 miles northeast of Crestone, canyon of North Crestone Creek",2604,2604,,,,,,"http://en.wikipedia.org/wiki/Saguache_County,_Colorado",
-11142159,1107,"North America, United States, Texas, Howard County",North America,,,,United States,,Texas,Howard County,,Specific locality encumbered,,,,,,,,University of Alaska Museum,
+locationID,higherGeographyID,higherGeography,continent,waterbody,islandGroup,island,country,countryCode,stateProvince,county,municipality,locality,minimumElevationInMeters,maximumElevationInMeters,verticalDatum,minimumDepthInMeters,maximumDepthInMeters,minimumDistanceAboveSurfaceInMeters,maximumDistanceAboveSurfaceInMeters,locationAccordingTo,locationRemarks
+1119141,1005063,"South America, Bolivia, Santa Cruz",South America,,,,Bolivia,,Santa Cruz,,,"29.5 KM W ROBORE, 475 M; 18D19'S, 60D02'W",475,475,,,,,,,
+10051345,1001631,"North America, United States, California, Modoc County",North America,,,,United States,,California,Modoc County,,Jess Valley,,,,,,,,,
+10112026,10000403,"Asia, Korea, South Cholla Province",Asia,,,,Korea,,South Cholla Province,,,"Daea, Daea-ri, Dongsang-myeon, Wanju-gun",,,,,,,,,
+10125413,121,"North America, United States, Alaska",North America,,,,United States,,Alaska,,,King Island,,,,,,,,,
+10141952,1720,"North America, United States, Colorado, Saguache County",North America,,,,United States,,Colorado,Saguache County,,"Sangre de Cristo Mountains, 2 miles northeast of Crestone, canyon of North Crestone Creek",2604,2604,,,,,,,
+11142159,1107,"North America, United States, Texas, Howard County",North America,,,,United States,,Texas,Howard County,,Specific locality encumbered,,,,,,,,,
