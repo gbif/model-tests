@@ -1,0 +1,64 @@
+entityID,entityType,collectionID,entityRemarks
+21714980,Organism,https://arctos.database.museum/collection/DMNS:Mamm,
+29610849,Organism,https://arctos.database.museum/collection/DMNS:Para,
+29610851,Organism,https://arctos.database.museum/collection/DMNS:Para,
+26462265,Organism,https://arctos.database.museum/collection/DMNS:Para,
+1906948,Organism,https://arctos.database.museum/collection/MSB:Mamm,
+10599395,Organism,https://arctos.database.museum/collection/MVZ:Egg,
+21176824,Organism,https://arctos.database.museum/collection/MVZ:Herp,
+29211836,Organism,https://arctos.database.museum/collection/NMMNH:Paleo,
+23825198,cultural object,https://arctos.database.museum/collection/UAM:EH,
+10007944,StillImage,,
+10007945,StillImage,,
+10203450,StillImage,,
+10207228,StillImage,,
+10207229,StillImage,,
+10207231,StillImage,,
+10207232,StillImage,,
+10207233,StillImage,,
+10212653,StillImage,,
+10257326,StillImage,,
+10257327,StillImage,,
+10312509,StillImage,,
+10312514,StillImage,,
+10312517,StillImage,,
+10312522,StillImage,,
+10312545,StillImage,,
+10312720,StillImage,,
+10312721,StillImage,,
+10312722,StillImage,,
+10312723,StillImage,,
+10312764,StillImage,,
+10313319,StillImage,,
+10470991,StillImage,,
+10604438,StillImage,,
+10604439,StillImage,,
+21714984,MaterialEntity,https://arctos.database.museum/collection/DMNS:Mamm,M5-36
+21714981,MaterialEntity,https://arctos.database.museum/collection/DMNS:Mamm,
+21714982,MaterialEntity,https://arctos.database.museum/collection/DMNS:Mamm,
+21714983,MaterialEntity,https://arctos.database.museum/collection/DMNS:Mamm,M5-35
+21714985,MaterialEntity,https://arctos.database.museum/collection/DMNS:Mamm,M5-37
+21714986,MaterialEntity,https://arctos.database.museum/collection/DMNS:Mamm,lice
+21714987,MaterialEntity,https://arctos.database.museum/collection/DMNS:Mamm,
+29610850,MaterialEntity,https://arctos.database.museum/collection/DMNS:Para,
+29610852,MaterialEntity,https://arctos.database.museum/collection/DMNS:Para,1 tick
+26462266,MaterialEntity,https://arctos.database.museum/collection/DMNS:Para,
+29610848,MaterialEntity,https://arctos.database.museum/collection/DMNS:Para,flea leg from mounted voucher on slide
+27237942,MaterialEntity,https://arctos.database.museum/collection/MSB:Mamm,part autocreated and installed from DGR Locator data
+1906949,MaterialEntity,https://arctos.database.museum/collection/MSB:Mamm,In type case
+1906951,MaterialEntity,https://arctos.database.museum/collection/MSB:Mamm,In type case
+2147317,MaterialEntity,https://arctos.database.museum/collection/MSB:Mamm,
+2147316,MaterialEntity,https://arctos.database.museum/collection/MSB:Mamm,
+2147315,MaterialEntity,https://arctos.database.museum/collection/MSB:Mamm,
+2782031,MaterialEntity,https://arctos.database.museum/collection/MSB:Mamm,
+1906950,MaterialEntity,https://arctos.database.museum/collection/MSB:Mamm,"In type case; Original part name: skeleton, postcranial"
+2147319,MaterialEntity,https://arctos.database.museum/collection/MSB:Mamm,
+27249945,MaterialEntity,https://arctos.database.museum/collection/MSB:Mamm,part autocreated and installed from DGR Locator data
+2147318,MaterialEntity,https://arctos.database.museum/collection/MSB:Mamm,
+3002162,MaterialEntity,https://arctos.database.museum/collection/MSB:Mamm,
+27237943,MaterialEntity,https://arctos.database.museum/collection/MSB:Mamm,
+21261239,MaterialEntity,https://arctos.database.museum/collection/MVZ:Egg,
+21176825,MaterialEntity,https://arctos.database.museum/collection/MVZ:Herp,
+29226084,MaterialEntity,https://arctos.database.museum/collection/NMMNH:Paleo,limb end; Original part name: long bone
+23825199,MaterialEntity,https://arctos.database.museum/collection/UAM:EH,
+23825200,MaterialEntity,https://arctos.database.museum/collection/UAM:EH,Original part name: photograph

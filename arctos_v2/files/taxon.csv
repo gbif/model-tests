@@ -1,0 +1,17 @@
+taxonID,parentTaxonID,scientificName,nomenclaturalCode,taxonRank,kingdom,phylum,class,order,family,subfamily,genericName,specificEpithet,infraspecificEpithet,scientifcNameAuthorship
+51,,"Gulo gulo (Linnaeus, 1758)",ICZN,species,Animalia,Chordata,Mammalia,Carnivora,Mustelidae,Mustelinae,Gulo,gulo,,"(Linnaeus, 1758)"
+2031754,,"Karsenia koreana Min, Yang, Bonett, Vieites, Brandon and Wake, 2005",ICZN,species,Animalia,Chordata,Amphibia,Caudata,Plethodontidae,,Karsenia,koreana,,"Min, Yang, Bonett, Vieites, Brandon and Wake, 2005"
+1074868,,"Andalgalomys pearsoni (Myers, 1977)",ICZN,species,Animalia,Chordata,Mammalia,Rodentia,Cricetidae,,Andalgalomys,pearsoni,,"(Myers, 1977)"
+58465,,"Eumolpianus eumolpi (Rothschild, 1905)",ICZN,species,Animalia,Arthropoda,Insecta,Siphonaptera,Ceratophyllidae,Ceratophyllinae,Eumolpianus,eumolpi,,"(Rothschild, 1905)"
+660,,Hoplopleura arboricola Kellogg and Ferris 1915,ICZN,species,Animalia,Arthropoda,Insecta,Psocodea,Hoplopleuridae,,Hoplopleura,arboricola,,Kellogg and Ferris 1915
+27,,"Rangifer tarandus (Linnaeus, 1758)",ICZN,species,Animalia,Chordata,Mammalia,Artiodactyla,Cervidae,,Rangifer,tarandus,,"(Linnaeus, 1758)"
+10927560,,Ixodidae,ICZN,family,Animalia,Arthropoda,Arachnida,Ixodida,Ixodidae,,,,,
+1076684,,"Tamias quadrivittatus (Say, 1823)",ICZN,species,Animalia,Chordata,Mammalia,Rodentia,Sciuridae,Sciurinae,Tamias,quadrivittatus,,"(Say, 1823)"
+11359103,,"Antigone canadensis tabida (J.L.Peters, 1925)",ICZN,subspecies,Animalia,Chordata,Aves,Gruiformes,Gruidae,,Antigone,canadensis,tabida,"(J.L.Peters, 1925)"
+10939809,,Graomys pearsoni dorbignyi,ICZN,subspecies,Animalia,Chordata,Mammalia,Rodentia,Cricetidae,Sigmodontinae,Graomys,pearsoni,dorbignyi,
+3161417,,Reptilia,ICZN,order,Animalia,Chordata,Reptilia,,,,,,,
+36,,"Canis lupus Linnaeus, 1758",ICZN,species,Animalia,Chordata,Mammalia,Carnivora,Canidae,,Canis,lupus,,"Linnaeus, 1758"
+2079914,,"Neovison vison (Schreber, 1777)",ICZN,species,Animalia,Chordata,Mammalia,Carnivora,Mustelidae,Mustelinae,Neovison,vison,,"(Schreber, 1777)"
+1076670,,"Andalgalomys pearsoni dorbignyi Olds, Anderson and Yates, 1987",ICZN,subspecies,Animalia,Chordata,Mammalia,Rodentia,Cricetidae,Sigmodontinae,Andalgalomys,pearsoni,,"Olds, Anderson and Yates, 1987"
+70539,,Grus canadensis tabida,ICZN,subspecies,Animalia,Chordata,Aves,Gruiformes,Gruidae,Gruinae,Grus,canadensis,tabida,
+3164576,,Phocidae,ICZN,family,Animalia,Chordata,Mammalia,Carnivora,Phocidae,,,,,

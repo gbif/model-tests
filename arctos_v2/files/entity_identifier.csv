@@ -1,0 +1,39 @@
+entityID,entityIdentifier,entityIdentifierType
+21714980,https://arctos.database.museum/guid/DMNS:Mamm:11098,Arctos object
+29610849,https://arctos.database.museum/guid/DMNS:Para:64,Arctos object
+29610851,https://arctos.database.museum/guid/DMNS:Para:65,Arctos object
+26462265,http://arctos.database.museum/guid/DMNS:Para:664,Arctos object
+1906948,https://arctos.database.museum/guid/MSB:Mamm:55245,Arctos object
+10599395,https://arctos.database.museum/guid/MVZ:Egg:2547,Arctos object
+21176824,https://arctos.database.museum/guid/MVZ:Herp:246033,Arctos object
+29211836,https://arctos.database.museum/guid/NMMNH:Paleo:42236,Arctos object
+23825198,https://arctos.database.museum/guid/UAM:EH:UA67-133-0001,Arctos object
+21714980,11098,catalog number
+29610849,64,catalog number
+29610851,65,catalog number
+26462265,664,catalog number
+1906948,55245,catalog number
+10599395,2547,catalog number
+21176824,246033,catalog number
+29211836,42236,catalog number
+23825198,UA67-133-0001,catalog number
+21714980,JRD423,collector number
+21714980,178,DZTM: Denver Zoology Tissue Mammal
+21714980,http://www.ncbi.nlm.nih.gov/nuccore/KJ139497,GenBank
+21714980,https://datadryad.org/stash/dataset/doi:10.5061/dryad.52mp1,Dryad DOI
+26462265,178,DZTM: Denver Zoology Tissue Mammal
+1906948,12402,NK
+1906948,JAC1457,preparator number
+1906948,http://www.ncbi.nlm.nih.gov/nuccore/AY963176,GenBank
+1906948,http://www.ncbi.nlm.nih.gov/nuccore/AF159285,GenBank
+1906948,http://www.ncbi.nlm.nih.gov/nuccore/KC953241,GenBank
+1906948,http://www.ncbi.nlm.nih.gov/nuccore/KC953155,GenBank
+1906948,http://www.ncbi.nlm.nih.gov/nuccore/KC953355,GenBank
+1906948,http://www.ncbi.nlm.nih.gov/nuccore/MF110320.1,GenBank
+1906948,NK 12402,other identifier
+21176824,http://www.ncbi.nlm.nih.gov/nuccore/AY887135,GenBank
+21176824,http://www.ncbi.nlm.nih.gov/nuccore/EU275868,GenBank
+21176824,http://www.ncbi.nlm.nih.gov/nuccore/EU275822,GenBank
+21176824,DBW 6324,collector number
+29211836,P-42236,other identifier
+29211836,14386/L3100,other identifier
