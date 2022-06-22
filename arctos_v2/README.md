@@ -25,31 +25,9 @@ From ./arctos_v2/
 > psql arctos_v2 -f arctos_v2_create.sql
 ```
 
-## load into pg (order here is important for FKs)
+## load into pg
 ```
-csvsql --db postgresql:///arctos_v2 --no-create --insert ./files/agent_identifier.csv
-csvsql --db postgresql:///arctos_v2 --no-create --insert ./files/agent.csv
-csvsql --db postgresql:///arctos_v2 --no-create --insert ./files/collection.csv
-csvsql --db postgresql:///arctos_v2 --no-create --insert ./files/digital_entity.csv
-csvsql --db postgresql:///arctos_v2 --no-create --insert ./files/entity_agent_role.csv
-csvsql --db postgresql:///arctos_v2 --no-create --insert ./files/entity_assertion.csv
-csvsql --db postgresql:///arctos_v2 --no-create --insert ./files/entity_event.csv
-csvsql --db postgresql:///arctos_v2 --no-create --insert ./files/entity_identifier.csv
-csvsql --db postgresql:///arctos_v2 --no-create --insert ./files/entity_relationship.csv
-csvsql --db postgresql:///arctos_v2 --no-create --insert ./files/entity.csv
-csvsql --db postgresql:///arctos_v2 --no-create --insert ./files/event.csv
-csvsql --db postgresql:///arctos_v2 --no-create --insert ./files/georeference.csv
-csvsql --db postgresql:///arctos_v2 --no-create --insert ./files/identification_agent_role.csv
-csvsql --db postgresql:///arctos_v2 --no-create --insert ./files/identification_citation.csv
-csvsql --db postgresql:///arctos_v2 --no-create --insert ./files/identification_entity.csv
-csvsql --db postgresql:///arctos_v2 --no-create --insert ./files/identification.csv
-csvsql --db postgresql:///arctos_v2 --no-create --insert ./files/location_assertion.csv
-csvsql --db postgresql:///arctos_v2 --no-create --insert ./files/location.csv
-csvsql --db postgresql:///arctos_v2 --no-create --insert ./files/material_entity.csv
-csvsql --db postgresql:///arctos_v2 --no-create --insert ./files/reference_agent_role.csv
-csvsql --db postgresql:///arctos_v2 --no-create --insert ./files/reference.csv
-csvsql --db postgresql:///arctos_v2 --no-create --insert ./files/taxon_identification.csv
-csvsql --db postgresql:///arctos_v2 --no-create --insert ./files/taxon.csv
+> sh load_data.sh
 ```
 
 ## constraints for tables
