@@ -310,9 +310,11 @@ query {
     }
   }
 }
+```
 
+Which returns:
 
-
+```
 {
   "data": {
     "specimensIDs": {
