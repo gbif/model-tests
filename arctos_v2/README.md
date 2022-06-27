@@ -43,8 +43,6 @@ npx postgraphile -c 'postgresql://localhost/arctos_v2' --watch --enhance-graphiq
 
 http://localhost:7001/graphiql
 
-NOTE: This needs to be modified to function with arctos_v2 - MaterialAssertions were aggregated into EntityAssertions.
-
 Run a query:
 
 ```
