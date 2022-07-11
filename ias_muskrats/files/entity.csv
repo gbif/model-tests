@@ -1,0 +1,8 @@
+entityID,entityType,collectionID,entityRemarks
+1,MaterialEntity,,this is the muskrat population at this location during this case
+2,MaterialEntity,,this is the first trapped muskrat
+3,MaterialEntity,,this is the incidental catch of the mole
+4,MaterialEntity,,these are the two trapped muskrats
+5,DigitalEntity,,this is the photo taken the day the traps were first set
+6,DigitalEntity,,"this is the photo of the trapped, wounded muskrat"
+7,DigitalEntity,,this is the photo from the last day of trapping

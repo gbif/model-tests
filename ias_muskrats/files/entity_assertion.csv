@@ -1,0 +1,9 @@
+entityID,entityAssertionType,entityAssertionValue,entityAssertionValueNumeric,entityAssertionUnit,entityAssertionByAgentID,entityAssertionDate,entityAssertionProtocol,entityAssertionRemarks
+1,dwc:organismQuantity,,3,individuals,,2021-10-11,,the full count of the muskrat population during initial surveillance
+1,dwc:organismQuantity,,3,individuals,,2021-10-12,,the confirmed count of the muskrat population on the first day of management action
+1,dwc:organismQuantity,,2,individuals,,2021-10-13,,the confirmed count of the muskrat population on the second day of management action after one muskrat was caught in a trap
+1,dwc:organismQuantity,,0,individuals,,2021-10-14,,the confirmed count of the muskrat population on the third day of management action after two muskrats were caught in traps
+2,dwc:organismQuantity,,1,individuals,,2021-10-13,,the count of muskrats trapped in the second day of management action
+3,dwc:organismQuantity,,1,individuals,,2021-10-13,,the count of european moles trapped in the second day of management action
+4,dwc:organismQuantity,,2,individuals,,2021-10-14,,the count of muskrats trapped in the third day of management action
+2,welfare,wounded,,,,2021-10-13,,the state of welfare of the first trapped muskrat

@@ -1,0 +1,11 @@
+eventID,locationID,eventType,parentEventID,protocolID,eventDate,verbatimEventDate,verbatimLocality,verbatimElevation,verbatimDepth,verbatimCoordinates,verbatimLatitude,verbatimLongitude,verbatimCoordinateSystem,verbatimSRS,eventRemarks,protocolDescription,habitat
+1,1,project,,,2021,,"Tulpenstraat 10, Herzele, Belgium",,,,177022.6262,116515.5762,,,project as an extended Event that the cases are part of,,
+123456,2,IAS case,1,,2021-10-11T08:14:15+02:00/2021-10-15T12:14:15+02:00,,"Tulpenstraat 10, Herzele, Belgium",,,,177022.6262,116515.5762,,,case spanning several actions at the management site,,
+2,2,IAS surveillance,123456,,2021-10-11T08:14:15+02:00,,"Tulpenstraat 10, Herzele, Belgium",,,,177022.6262,116515.5762,,,the original surveillance action that resulted in the case being opened,,
+3,2,IAS management action,123456,,2021-10-12T09:14:15+02:00,,"Tulpenstraat 10, Herzele, Belgium",,,,177022.6262,116515.5762,,,the first management action initiated by the field worker,,
+4,2,trap set,3,,2021-10-12T09:14:15+02:00,,"Tulpenstraat 10, Herzele, Belgium",,,,177022.6262,116515.5762,,,the setting of traps as part of the first management action,,
+5,2,IAS management action,123456,,2021-10-13T10:14:15+02:00,,"Tulpenstraat 10, Herzele, Belgium",,,,177022.6262,116515.5762,,,,,
+6,2,collection,4,,2021-10-13T10:14:15+02:00,,"Tulpenstraat 10, Herzele, Belgium",,,,177022.6262,116515.5762,,,"the collection of the traps set in eventID=4, part of the second management action",,
+7,2,trap set,5,,2021-10-13T10:14:15+02:00,,"Tulpenstraat 10, Herzele, Belgium",,,,177022.6262,116515.5762,,,,,
+8,2,IAS management action,123456,,2021-10-14T11:14:15+02:00,,"Tulpenstraat 10, Herzele, Belgium",,,,177022.6262,116515.5762,,,,,
+9,2,collection,7,,2021-10-14T11:14:15+02:00,,"Tulpenstraat 10, Herzele, Belgium",,,,177022.6262,116515.5762,,,,,

@@ -1,0 +1,11 @@
+entityRelationshipID,dependsOnEntityRelationshipID,subjectEntityID,entityRelationshipType,objectEntityID,entityRelationshipRemarks
+1,,1,hasMember,2,one trapped muskrat from population
+2,,1,hasMember,4,two trapped muskrats from population
+3,,2,memberOf,1,population of the wounded trapped muskrat
+4,,4,memberOf,1,population of the two trapped muskrats
+5,,5,shows,1,photo showing the muskrat population
+6,,6,shows,2,photo showing the wounded trapped muskrat
+7,,7,shows,4,photo showing the two trapped muskrats
+8,,1,shownIn,5,population the photo shows
+9,,2,shownIn,6,wounded trapped muskrat the photo shows
+10,,4,shownIn,7,two trapped muskrats the photo shows

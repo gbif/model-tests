@@ -1,0 +1,3 @@
+locationID,higherGeographyID,higherGeography,continent,waterBody,islandGroup,island,country,countryCode,stateProvince,county,municipality,locality,minimumElevationInMeters,maximumElevationInMeters,verticalDatum,minimumDepthInMeters,maximumDepthInMeters,minimumDistanceAboveSurfaceInMeters,maximumDistanceAboveSurfaceInMeters,locationAccordingTo,locationRemarks
+1,,,,,,,Belgium,,,,,,,,,,,,,,
+2,,,,,,,Belgium,,,,,"Tulpenstraat 10, Herzele, Belgium",,,,,,,,,

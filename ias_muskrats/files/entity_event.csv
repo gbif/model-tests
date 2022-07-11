@@ -1,0 +1,12 @@
+entityID,eventID,establishmentMeans,pathway,degreeOfEstablishment,entityEventRemarks
+1,123456,introduced,,,this is the mustrat population being managed throughout this case
+1,2,introduced,,,this is the muskrat population observed in the surveillance action
+1,3,introduced,,,this is the muskrat population on the day the traps are first set
+1,5,introduced,,,this is the muskrat population on the second day the traps were set
+1,8,introduced,,,this is the muskrat population after trapping is finished following two days of trapping
+2,6,introduced,,,this is the wounded trapped muskrat from the first day the traps were checked
+3,6,native,,,this is the mole from the first day the traps were checked
+4,9,introduced,,,these are the remaining two muskrats of the population from the second day the traps were set
+5,3,,,,photo of the muskrat population in situ
+6,5,,,,photo of the wounded trapped muskrat in situ
+7,8,,,,photo of the two trapped muskrats in situ
