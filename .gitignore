@@ -1,2 +1,5 @@
 .DS_Store
 .idea
+**/Pipfile.lock
+**/__pycache__
+biowide/env
