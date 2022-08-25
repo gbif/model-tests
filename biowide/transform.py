@@ -121,8 +121,7 @@ for index in range(len(matrix)):
 
             # sequence / taxon
             taxonID = matrix["SH"].loc[index]
-            sequenceTaxon.append(SequenceTaxon(sequence, taxonID, "unite_v3"))
-            # TODO append confidence of this claim as assertion, which requires SequenceTaxon to have a PK
+            sequenceTaxon.append(SequenceTaxon(sequence, taxonID, "unite_v3", matrix["pident"].loc[index]))
 
             # calculate a relativeAbundance based on the reads
             reads = matrix[siteID].loc[index]
@@ -138,7 +137,7 @@ entityDF = pd.DataFrame([vars(e) for e in entity], columns=['entityID', 'entityT
 materialEntityDF = pd.DataFrame([vars(e) for e in materialEntity], columns=['materialEntityID', 'materialEntityType'])
 digitalEntityDF = pd.DataFrame([vars(e) for e in digitalEntity], columns=['digitalEntityID', 'digitalEntityType', 'accessURI', 'webStatement'])
 geneticSequenceDF = pd.DataFrame([vars(e) for e in geneticSequence], columns=['geneticSequenceID', 'sequence', 'geneticSequenceType'])
-sequenceTaxonDF = pd.DataFrame([vars(e) for e in sequenceTaxon], columns=['geneticSequenceID', 'taxonID', 'sequenceTaxonAuthorityID'])
+sequenceTaxonDF = pd.DataFrame([vars(e) for e in sequenceTaxon], columns=['geneticSequenceID', 'taxonID', 'sequenceTaxonAuthorityID', 'confidence'])
 eventDF = pd.DataFrame([vars(e) for e in event], columns=['eventID','locationID', 'eventType', 'parentEventID', 'protocolID', 'time', 'environment'])
 eventAssertionDF = pd.DataFrame([vars(e) for e in eventAssertion], columns=['assertionID', 'eventID', 'effectiveDate', 'type', 'value', 'valueNumeric', 'unit'])
 geneticSequenceAssertionDF = pd.DataFrame([vars(e) for e in geneticSequenceAssertions], columns=['assertionID', 'geneticSequenceID', 'effectiveDate', 'type', 'value', 'valueNumeric', 'unit'])

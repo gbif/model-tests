@@ -51,10 +51,11 @@ class GeneticSequence:
         self.geneticSequenceType = geneticSequenceType
 
 class SequenceTaxon:
-    def __init__(self, geneticSequenceID, taxonID, sequenceTaxonAuthorityID):
+    def __init__(self, geneticSequenceID, taxonID, sequenceTaxonAuthorityID, confidence):
         self.geneticSequenceID = geneticSequenceID
         self.taxonID = taxonID
         self.sequenceTaxonAuthorityID = sequenceTaxonAuthorityID
+        self.confidence = confidence
 
 class Taxon:
     def __init__(self, taxonID, parentTaxonID, scientificName):
