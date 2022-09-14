@@ -128,5 +128,5 @@ CREATE TABLE public.taxon_identification (
 CREATE TABLE public.sequence_taxon (
     "taxonID" character varying,
     "geneticSequenceID" character varying,
-    "sequenceTaxonAuthorityID" character varying
+    "sequenceTaxonAuthority" character varying
 );
