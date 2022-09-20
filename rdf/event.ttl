@@ -1,0 +1,326 @@
+# baseURI: https://gbif.org/def/event
+# imports: http://purl.org/dc/elements/1.1/
+# imports: http://www.opengis.net/ont/geosparql
+# imports: http://www.w3.org/ns/sosa/prov
+# imports: http://www.w3.org/ns/ssn/ext
+# prefix: gbif
+
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix gbif: <https://gbif.org/def/event#> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://gbif.org/def/event>
+  a owl:Ontology ;
+  dcterms:created "2022-09-15" ;
+  dcterms:creator <https://orcid.org/0000-0002-3884-3420> ;
+  dcterms:description "Interpretation/implementation of GBIF event model in RDFS/OWL" ;
+  dcterms:modified "2022-09-15" ;
+  owl:imports <http://purl.org/dc/elements/1.1/> ;
+  owl:imports <http://www.opengis.net/ont/geosparql> ;
+  owl:imports sosa:prov ;
+  owl:imports ssn:ext ;
+.
+gbif:Entity
+  a owl:Class ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:type ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty rdfs:comment ;
+    ] ;
+  skos:broadMatch prov:Entity ;
+  skos:prefLabel "Basic entity" ;
+.
+gbif:EntityEvent
+  a owl:Class ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty gbif:relatedEntity ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty gbif:relatedEvent ;
+    ] ;
+  skos:closeMatch prov:wasInfluencedBy ;
+  skos:prefLabel "Entity Event association" ;
+.
+gbif:EntityRelationship
+  a owl:Class ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:date ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:type ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty gbif:objectEntity ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty gbif:subjectEntity ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty gbif:dependencyEntityRelationship ;
+    ] ;
+  skos:prefLabel "Entity Entity association" ;
+.
+gbif:Event
+  a owl:Class ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:type ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty gbif:usedProtocol ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty gbif:hasLocation ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty gbif:parentEvent ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty gbif:relatedEvent ;
+    ] ;
+  skos:broadMatch prov:Activity ;
+  skos:prefLabel "Basic event" ;
+.
+gbif:GeneticSequence
+  a owl:Class ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:type ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty gbif:hasSequence ;
+    ] ;
+  skos:prefLabel "Genetic Sequence" ;
+.
+gbif:Identification
+  a owl:Class ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:type ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty gbif:taxonFormula ;
+    ] ;
+  skos:prefLabel "Identification" ;
+.
+gbif:IdentificationEntity
+  a owl:Class ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty gbif:relatedEntity ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty gbif:relatedIdentification ;
+    ] ;
+  skos:prefLabel "Identification Entity association" ;
+.
+gbif:Location
+  a owl:Class ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty gbif:parentLocation ;
+    ] ;
+  skos:broadMatch geosparql:Feature ;
+  skos:prefLabel "Location" ;
+.
+gbif:Protocol
+  a owl:Class ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:type ;
+    ] ;
+  skos:prefLabel "Protocol" ;
+.
+gbif:SequenceTaxon
+  a owl:Class ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty gbif:relatedSequence ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty gbif:relatedTaxon ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty gbif:sequenceTaxonAuthority ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty gbif:taxonConfidencePercent ;
+    ] ;
+  skos:prefLabel "Sequence Taxon association" ;
+.
+gbif:Taxon
+  a owl:Class ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty gbif:parentTaxon ;
+    ] ;
+  skos:prefLabel "Taxon" ;
+.
+gbif:TaxonIdentification
+  a owl:Class ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty gbif:relatedIdentification ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty gbif:relatedTaxon ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty gbif:taxonOrder ;
+    ] ;
+  skos:prefLabel "Taxon Identification association" ;
+.
+gbif:dependencyEntityRelationship
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf gbif:relatedEntityRelationship ;
+  skos:prefLabel "dependency EntityRelationship" ;
+.
+gbif:hasLocation
+  a owl:ObjectProperty ;
+  rdfs:range gbif:Location ;
+  skos:prefLabel "has Location" ;
+.
+gbif:hasSequence
+  a owl:ObjectProperty ;
+  skos:prefLabel "Link to actual sequence" ;
+.
+gbif:objectEntity
+  a owl:ObjectProperty ;
+  rdfs:range gbif:Entity ;
+  rdfs:subPropertyOf gbif:relatedEntity ;
+  skos:prefLabel "object (target) Entity" ;
+.
+gbif:parentEvent
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf gbif:relatedEvent ;
+  skos:prefLabel "parent Event" ;
+.
+gbif:parentLocation
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf gbif:hasLocation ;
+  skos:prefLabel "parent Location" ;
+.
+gbif:parentTaxon
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf gbif:relatedTaxon ;
+  skos:prefLabel "parent Taxon" ;
+.
+gbif:relatedEntity
+  a owl:ObjectProperty ;
+  rdfs:range gbif:Entity ;
+  skos:prefLabel "related Entity" ;
+.
+gbif:relatedEntityRelationship
+  a owl:ObjectProperty ;
+  skos:prefLabel "related EntityRelationship" ;
+.
+gbif:relatedEvent
+  a owl:ObjectProperty ;
+  rdfs:range gbif:Event ;
+  skos:prefLabel "related Event" ;
+.
+gbif:relatedIdentification
+  a owl:ObjectProperty ;
+  rdfs:range gbif:Identification ;
+  skos:prefLabel "related Identification" ;
+.
+gbif:relatedSequence
+  a owl:ObjectProperty ;
+  rdfs:range gbif:GeneticSequence ;
+  skos:prefLabel "related GeneticSequence" ;
+.
+gbif:relatedTaxon
+  a owl:ObjectProperty ;
+  rdfs:range gbif:Taxon ;
+  skos:prefLabel "related Taxon" ;
+.
+gbif:sequenceTaxonAuthority
+  a owl:ObjectProperty ;
+  skos:prefLabel "Authority for sequence taxon association" ;
+.
+gbif:subjectEntity
+  a owl:ObjectProperty ;
+  rdfs:range gbif:Entity ;
+  rdfs:subPropertyOf gbif:relatedEntity ;
+  skos:prefLabel "subject (source) Entity" ;
+.
+gbif:taxonConfidencePercent
+  a owl:DatatypeProperty ;
+  rdfs:range xsd:decimal ;
+  skos:prefLabel "Confidence in taxon association (%)" ;
+.
+gbif:taxonFormula
+  a owl:ObjectProperty ;
+  rdfs:range skos:Concept ;
+  skos:prefLabel "taxon formula" ;
+.
+gbif:taxonOrder
+  a owl:ObjectProperty ;
+  rdfs:range skos:Concept ;
+  skos:prefLabel "taxon order" ;
+.
+gbif:usedProtocol
+  a owl:ObjectProperty ;
+  rdfs:range gbif:Protocol ;
+  skos:prefLabel "used Protocol" ;
+.
