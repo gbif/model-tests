@@ -45,7 +45,7 @@ CREATE TABLE public.entity (
 
 CREATE TABLE public.collection (
     "collectionID" character varying,
-    "collecionType" character varying
+    "collectionType" character varying
 );
 
 CREATE TABLE public.digital_entity (
@@ -338,7 +338,7 @@ ALTER TABLE ONLY public.event
     ADD CONSTRAINT pk_event UNIQUE ("eventID");
 
 ALTER TABLE ONLY public.genetic_sequence
-    ADD CONSTRAINT pk_event UNIQUE ("geneticSequenceID");
+    ADD CONSTRAINT pk_event_geneticSequenceID UNIQUE ("geneticSequenceID");
 
 ALTER TABLE ONLY public.identification
     ADD CONSTRAINT pk_identification UNIQUE ("identificationID");
@@ -350,13 +350,13 @@ ALTER TABLE ONLY public.material_entity
     ADD CONSTRAINT pk_material_entity UNIQUE ("materialEntityID");
 
 ALTER TABLE ONLY public.material_group
-    ADD CONSTRAINT pk_material_entity UNIQUE ("materialGroupID");
+    ADD CONSTRAINT pk_material_entity_materialGroupID UNIQUE ("materialGroupID");
 
 ALTER TABLE ONLY public.organism
-    ADD CONSTRAINT pk_location UNIQUE ("organismID");
+    ADD CONSTRAINT pk_organismID UNIQUE ("organismID");
 
 ALTER TABLE ONLY public.protocol
-    ADD CONSTRAINT pk_location UNIQUE ("protocolID");
+    ADD CONSTRAINT pk_protocolID UNIQUE ("protocolID");
 
 ALTER TABLE ONLY public.taxon
     ADD CONSTRAINT pk_taxon UNIQUE ("taxonID");
@@ -422,32 +422,32 @@ ALTER TABLE ONLY public.entity_relationship
 -- A Collection is a subtype of Entity.
 ALTER TABLE ONLY public.collection
     ADD CONSTRAINT "collection_collectionID_fkey" 
-    UNIQUE FOREIGN KEY ("collectionID") REFERENCES public.entity("entityID");
+    FOREIGN KEY ("collectionID") REFERENCES public.entity("entityID");
 
 -- A DigitalEntity is a subtype of Entity.
 ALTER TABLE ONLY public.digital_entity
     ADD CONSTRAINT "digital_entity_digitalEntityID_fkey" 
-    UNIQUE FOREIGN KEY ("digitalEntityID") REFERENCES public.entity("entityID");
+    FOREIGN KEY ("digitalEntityID") REFERENCES public.entity("entityID");
 
 -- A GeneticSequence is a subtype of DigitalEntity.
 ALTER TABLE ONLY public.genetic_sequence
     ADD CONSTRAINT "genetic_sequence_geneticSequenceID_fkey" 
-    UNIQUE FOREIGN KEY ("geneticSequenceID") REFERENCES public.entity("digitalEntityID");
+    FOREIGN KEY ("geneticSequenceID") REFERENCES public.digital_entity("digitalEntityID");
 
 -- A MaterialEntity is a subtype of Entity.
 ALTER TABLE ONLY public.material_entity
     ADD CONSTRAINT "material_entity_materialEntityID_fkey" 
-    UNIQUE FOREIGN KEY ("materialEntityID") REFERENCES public.entity("entityID");
+    FOREIGN KEY ("materialEntityID") REFERENCES public.entity("entityID");
 
 -- A MaterialGroup is a subtype of MaterialEntity.
 ALTER TABLE ONLY public.material_group
     ADD CONSTRAINT "material_group_materialGroupID_fkey" 
-    UNIQUE FOREIGN KEY ("materialGroupID") REFERENCES public.entity("materialEntityID");
+    FOREIGN KEY ("materialGroupID") REFERENCES public.material_entity("materialEntityID");
 
 -- An Organism is a subtype of Entity.
 ALTER TABLE ONLY public.organism
     ADD CONSTRAINT "organism_organismID_fkey" 
-    UNIQUE FOREIGN KEY ("organismID") REFERENCES public.entity("entityID");
+    FOREIGN KEY ("organismID") REFERENCES public.entity("entityID");
 
 -- An Identification can apply to one or more Entities.
 ALTER TABLE ONLY public.identification_entity
@@ -482,7 +482,7 @@ ALTER TABLE ONLY public.sequence_taxon
 -- A GeneticSequence may refer to one or more Taxa.
 ALTER TABLE ONLY public.sequence_taxon
     ADD CONSTRAINT "sequence_taxon_geneticSequenceID_fkey" 
-    FOREIGN KEY ("geneticSequenceID") REFERENCES public.geneticSequence("geneticSequenceID");
+    FOREIGN KEY ("geneticSequenceID") REFERENCES public.genetic_sequence("geneticSequenceID");
 
 -- ----- CONSTRAIN common model tables ------
 --    PRIMARY KEYS for common model tables
@@ -491,13 +491,13 @@ ALTER TABLE ONLY public.agent
     ADD CONSTRAINT pk_agent UNIQUE ("agentID");
 
 ALTER TABLE ONLY public.entity_assertion
-    ADD CONSTRAINT pk_agent UNIQUE ("entityAssertionID");
+    ADD CONSTRAINT pk_entity_assertion UNIQUE ("entityAssertionID");
 
 ALTER TABLE ONLY public.event_assertion
-    ADD CONSTRAINT pk_agent UNIQUE ("eventAssertionID");
+    ADD CONSTRAINT pk_event_assertion UNIQUE ("eventAssertionID");
 
 ALTER TABLE ONLY public.location_assertion
-    ADD CONSTRAINT pk_agent UNIQUE ("locationAssertionID");
+    ADD CONSTRAINT pk_location_assertion UNIQUE ("locationAssertionID");
 
 ALTER TABLE ONLY public.reference
     ADD CONSTRAINT pk_reference UNIQUE ("referenceID");
@@ -512,7 +512,7 @@ ALTER TABLE ONLY public.agent_identifier
 -- An Collection may have zero or more Identifiers.
 ALTER TABLE ONLY public.collection_identifier
     ADD CONSTRAINT "collection_identifier_agentID_fkey" 
-    FOREIGN KEY ("collectionID") REFERENCES public.collecion("collectionID");
+    FOREIGN KEY ("collectionID") REFERENCES public.collection("collectionID");
 
 -- An Entity may have zero or more Identifiers.
 ALTER TABLE ONLY public.entity_identifier
@@ -533,11 +533,6 @@ ALTER TABLE ONLY public.agent_relationship
 ALTER TABLE ONLY public.agent_relationship
     ADD CONSTRAINT "agent_relationship_subbjectAgentID_fkey" 
     FOREIGN KEY ("subjectAgentID") REFERENCES public.agent("agentID");
-
--- An Agent may have zero or more CollectionAgentRoles.
-ALTER TABLE ONLY public.collection_agent_role
-    ADD CONSTRAINT "collection_agent_role_agentID_fkey" 
-    FOREIGN KEY ("agentID") REFERENCES public.agent("agentID");
 
 -- A Collection may have zero or more CollectionAgentRoles.
 ALTER TABLE ONLY public.collection_agent_role
@@ -561,8 +556,8 @@ ALTER TABLE ONLY public.event_agent_role
 
 -- An Event may have zero or more EventAgentRoles.
 ALTER TABLE ONLY public.event_agent_role
-    ADD CONSTRAINT "event_agent_role_entityID_fkey" 
-    FOREIGN KEY ("entityID") REFERENCES public.entity("entityID");
+    ADD CONSTRAINT "event_agent_role_eventID_fkey" 
+    FOREIGN KEY ("eventID") REFERENCES public.event("eventID");
 
 -- An Agent may have zero or more IdentificationAgentRoles.
 ALTER TABLE ONLY public.identification_agent_role
@@ -596,8 +591,8 @@ ALTER TABLE ONLY public.entity_assertion
 
 -- An Event may have zero or more EventAssertions.
 ALTER TABLE ONLY public.event_assertion
-    ADD CONSTRAINT "event_assertion_entityID_fkey" 
-    FOREIGN KEY ("entityID") REFERENCES public.entity("entityID");
+    ADD CONSTRAINT "event_assertion_eventID_fkey" 
+    FOREIGN KEY ("eventID") REFERENCES public.event("eventID");
 
 -- An EventAssertion may be made by zero or one Agents.
 ALTER TABLE ONLY public.event_assertion
@@ -622,7 +617,7 @@ ALTER TABLE ONLY public.identification_citation
 -- An IdentificationCitation may cire zero or more References.
 ALTER TABLE ONLY public.identification_citation
     ADD CONSTRAINT "identification_citation_referenceID_fkey" 
-    FOREIGN KEY ("referenceID") REFERENCES public.reference("referenceID");
+    FOREIGN KEY ("identificationReferenceID") REFERENCES public.reference("referenceID");
 
 -- ----- ALTER core tables for properties ------
 --
@@ -661,7 +656,6 @@ ALTER TABLE public.entity_event ADD "sex" character varying;
 ALTER TABLE public.entity_event ADD "lifeStage" character varying;
 ALTER TABLE public.entity_event ADD "reproductiveCondition" character varying;
 ALTER TABLE public.entity_event ADD "behavior" character varying;
-ALTER TABLE public.entity_event ADD "degreeOfEstablishment" character varying;
 ALTER TABLE public.entity_event ADD "entityEventRemarks" character varying;
 
 --CREATE TABLE public.entity_relationship (
@@ -736,7 +730,6 @@ ALTER TABLE public.georeference ADD "pointRadiusSpatialFit" numeric;
 ALTER TABLE public.georeference ADD "footprintWKT" character varying;
 ALTER TABLE public.georeference ADD "footprintSRS" character varying;
 ALTER TABLE public.georeference ADD "footprintSpatialFit" numeric;
-ALTER TABLE public.georeference ADD "footprintSRS" character varying;
 ALTER TABLE public.georeference ADD "georeferencedBy" character varying;
 ALTER TABLE public.georeference ADD "georeferencedDate" character varying;
 ALTER TABLE public.georeference ADD "georeferenceProtocol" character varying;
