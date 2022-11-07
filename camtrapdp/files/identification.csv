@@ -1,0 +1,30 @@
+identificationID,identificationType,taxaFormula,verbatimIdentification,identificationQualifier,typeStatus,dateIdentified,identificationVerificationStatus,identificationRemarks,isAcceptedIdentification,identifiedBy
+identificationid_1,human,A,Anas platyrhynchos,,,2020-07-09T09:39:52Z,,,1,Danny Van der beeck
+identificationid_2,human,A,Anas platyrhynchos,,,2020-07-09T09:40:32Z,,,1,Danny Van der beeck
+identificationid_3,human,A,Anas platyrhynchos,,,2020-07-09T09:40:44Z,,,1,Danny Van der beeck
+identificationid_4,human,A,Rattus norvegicus,,,2020-07-09T09:41:22Z,,,1,Danny Van der beeck
+identificationid_5,human,A,Anas platyrhynchos,,,2020-07-09T09:43:06Z,,,1,Danny Van der beeck
+identificationid_6,human,A,Anas platyrhynchos,,,2020-07-09T09:43:19Z,,,1,Danny Van der beeck
+identificationid_7,human,A,Anas platyrhynchos,,,2020-07-09T09:43:59Z,,,1,Danny Van der beeck
+identificationid_8,human,A,Anas platyrhynchos,,,2020-07-09T09:44:50Z,,,1,Danny Van der beeck
+identificationid_9,human,A,Ardea cinerea,,,2020-07-09T09:44:59Z,,,1,Danny Van der beeck
+identificationid_10,human,A,Anas platyrhynchos,,,2020-07-09T09:44:39Z,,,1,Danny Van der beeck
+identificationid_11,human,A,Anas platyrhynchos,,,2020-07-09T09:45:21Z,,,1,Danny Van der beeck
+identificationid_12,human,A,Rattus norvegicus,,,2020-07-09T09:46:08Z,,,1,Danny Van der beeck
+identificationid_13,human,A,Anas strepera,,,2020-08-17T06:57:28Z,,,1,Danny Van der beeck
+identificationid_14,human,A,Anas strepera,,,2020-08-17T06:57:50Z,,,1,Danny Van der beeck
+identificationid_15,human,A,Anas platyrhynchos,,,2020-08-17T07:03:19Z,,,1,Danny Van der beeck
+identificationid_16,human,A,Anas platyrhynchos,,,2020-08-18T21:09:30Z,,,1,Danny Van der beeck
+identificationid_17,human,A,Anas platyrhynchos,,,2020-08-18T21:10:06Z,,,1,Danny Van der beeck
+identificationid_18,human,A,Anas platyrhynchos,,,2020-08-18T21:10:40Z,,,1,Danny Van der beeck
+identificationid_19,human,A,Anas strepera,,,2020-08-18T21:11:23Z,,,1,Danny Van der beeck
+identificationid_20,human,A,Castor fiber,,,2020-08-11T21:18:16Z,,,1,Danny Van der beeck
+identificationid_21,human,A,Mustela putorius,,,2020-08-11T21:18:45Z,,,1,Danny Van der beeck
+identificationid_22,human,A,Mustela putorius,,,2020-08-11T21:19:13Z,,,1,Danny Van der beeck
+identificationid_23,human,A,Vulpes vulpes,,,2020-08-11T21:19:36Z,,,1,Danny Van der beeck
+identificationid_24,human,A,Martes foina,,,2020-08-11T21:20:06Z,,,1,Danny Van der beeck
+identificationid_25,human,A,Mustela putorius,,,2020-08-11T21:20:40Z,,,1,Danny Van der beeck
+identificationid_26,human,A,Ardea cinerea,,,2021-05-31T08:27:06Z,,,1,Axel Neukermans
+identificationid_27,machine,A,Ardea,,,2021-07-05T11:43:57Z,,,1,Western Europe species model Version 1
+identificationid_28,human,A,Ardea cinerea,,,2021-10-10T06:35:23Z,,,1,Axel Neukermans
+identificationid_29,human,A,Homo sapiens,,,2021-10-10T06:34:40Z,,,1,Axel Neukermans

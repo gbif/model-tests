@@ -1,0 +1,3 @@
+entityRelationshipID,dependsOnEntityRelationshipID,subjectEntityID,entityRelationshipType,objectEntityID,externalObjectEntityID
+entity_relationship_id_1,,1df9727c-dde9-498a-824e-cc4f19436117,derivedFrom,https://doi.org/10.5281/zenodo.5590881,https://doi.org/10.5281/zenodo.5590881
+entity_relationship_id_2,,1df9727c-dde9-498a-824e-cc4f19436117,supplementTo,digital_entity_id_1,

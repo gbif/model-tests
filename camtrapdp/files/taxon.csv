@@ -1,0 +1,11 @@
+taxonID,parentTaxonID,scientificName,nomenclaturalCode,taxonRank,kingdom,phylum,class,order,family,subfamily,genericName,specificEpithet,infraspecificEpithet,scientifcNameAuthorship
+32FH,,Ardea,ICZN,genus,Animalia,,,,,,Ardea,,,
+3Y9VW,,Martes foina,ICZN,species,Animalia,,,,,,Martes,foina,,
+44QYC,,Mustela putorius,ICZN,species,Animalia,,,,,,Mustela putorius,putorius,,
+4RM67,,Rattus norvegicus,ICZN,species,Animalia,,,,,,Rattus norvegicus,norvegicus,,
+5BSG3,,Vulpes vulpes,ICZN,species,Animalia,,,,,,Vulpes vulpes,vulpes,,
+6MB3T,,Homo sapiens,ICZN,species,Animalia,,,,,,Homo,sapiens,,
+DGP6,,Anas platyrhynchos,ICZN,species,Animalia,,,,,,Anas,platyrhynchos,,
+DGPL,,Anas strepera,ICZN,species,Animalia,,,,,,Anas,strepera,,
+GCHS,,Ardea cinerea,ICZN,species,Animalia,,,,,,Ardea,cinerea,,
+RQPW,,Castor fiber,ICZN,species,Animalia,,,,,,Castor,fiber,,

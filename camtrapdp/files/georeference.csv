@@ -1,0 +1,5 @@
+locationID,decimalLatitude,decimalLongitude,geodeticDatum,coordinateUncertaintyInMeters,coordinatePrecision,pointRadiusSpatialFit,footprintWKT,footprintSRS,footprintSpatialFit,georeferencedBy,georeferencedDate,georeferenceProtocol,georeferenceSources,georeferenceRemarks,preferredSpatialRepresentation
+e254a13c-26e8-483d-b664-4a0f1f4e9995,51.496,4.774,epsg:4326,187,0.001,,,,,,,,,,point-radius
+2df5259b-b4b4-4f43-8cf7-effcced06d6f,51.181,5.655,epsg:4326,187,0.001,,,,,,,,,,point-radius
+ff1535c0-6b5d-44be-b3ef-c4d4204dad74,51.184,5.657,epsg:4326,187,0.001,,,,,,,,,,point-radius
+proj_loc_1,,,,,,,"POLYGON((4.01330 50.69905, 5.65869 50.69905, 5.65869 51.49608, 4.01330 51.49608, 4.01330 50.69905))",epsg:4326,,,,,,,
