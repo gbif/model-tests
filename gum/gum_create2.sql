@@ -40,7 +40,7 @@ CREATE TABLE location (
   minimum_depth_in_meters NUMERIC CHECK (minimum_depth_in_meters BETWEEN 0 AND 11000),
   maximum_depth_in_meters NUMERIC CHECK (maximum_depth_in_meters BETWEEN 0 AND 11000),
   vertical_datum TEXT,
-  location_accordingTo TEXT,
+  location_according_to TEXT,
   location_remarks TEXT
 );
 CREATE INDEX ON location(parent_location_id);
