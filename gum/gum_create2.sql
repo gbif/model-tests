@@ -247,7 +247,7 @@ CREATE TABLE entity_relationship (
   subject_entity_id TEXT REFERENCES entity ON DELETE CASCADE,
   entity_relationship_type TEXT NOT NULL,
   object_entity_id TEXT REFERENCES entity ON DELETE CASCADE,
-  object_entity_iRI TEXT,
+  object_entity_iri TEXT,
   entity_relationship_date TEXT
 );
 CREATE INDEX ON entity_relationship(depends_on_entity_relationship_id);
