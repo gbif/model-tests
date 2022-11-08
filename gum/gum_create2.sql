@@ -256,6 +256,7 @@ CREATE INDEX ON entity_relationship(object_entity_id);
 -- An identification connects an Entity to one or more Taxa through a taxon formula.
 -- The identification may involve genetic material and a sequence.
 ---
+
 CREATE TABLE identification (
   identification_id TEXT PRIMARY KEY,
   identification_type TEXT NOT NULL,
