@@ -141,6 +141,8 @@ CREATE INDEX ON event(parent_event_id);
 CREATE INDEX ON event(location_id);
 CREATE INDEX ON event(protocol_id);
 
+
+
 ---
 -- Entity, sub-entities and their relationships.
 --
@@ -249,6 +251,7 @@ CREATE TABLE entity_relationship (
 CREATE INDEX ON entity_relationship(depends_on_entity_relationship_id);
 CREATE INDEX ON entity_relationship(subject_entity_id);
 CREATE INDEX ON entity_relationship(object_entity_id);
+
 
 
 ---
