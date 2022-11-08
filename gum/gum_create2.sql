@@ -35,9 +35,11 @@ CREATE TABLE location (
   locality TEXT,
   minimum_elevation_in_meters NUMERIC CHECK (minimum_elevation_in_meters BETWEEN -430 AND 8850),
   maximum_elevation_in_meters NUMERIC CHECK (maximum_elevation_in_meters BETWEEN -430 AND 8850),
+  minimum_distance_above_surface_in_meters NUMERIC,
+  maximum_distance_above_surface_in_meters NUMERIC,
+  minimum_depth_in_meters NUMERIC CHECK (minimum_depth_in_meters BETWEEN 0 AND 11000),
+  maximum_depth_in_meters NUMERIC CHECK (maximum_depth_in_meters BETWEEN 0 AND 11000),
   vertical_datum TEXT,
-  minimum_distance_above_surface_in_meters NUMERIC CHECK (minimum_distance_above_surface_in_meters BETWEEN -12000 AND 100000),
-  maximum_distance_above_surface_in_meters NUMERIC CHECK (maximum_distance_above_surface_in_meters BETWEEN -12000 AND 100000),
   location_accordingTo TEXT,
   location_remarks TEXT
 );
