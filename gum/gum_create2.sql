@@ -274,14 +274,7 @@ CREATE TABLE identification_entity (
   PRIMARY KEY (identification_id, entity_id)
 );
 
----
--- It is expected that people would either use a normalised or denormalised form here.
--- Normalized would use:
---   taxon_id, parent_taxon_id, rank and status
---
--- Denormalized would use:
---    
----
+-- It is expected that people would either use a normalised or denormalised form
 CREATE TABLE taxon (
   -- common to all
   taxon_id TEXT PRIMARY KEY,
