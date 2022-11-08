@@ -19,72 +19,72 @@
 ---
 
 CREATE TABLE location (
-  locationID TEXT PRIMARY KEY,
-  parentLocationID TEXT REFERENCES location ON DELETE CASCADE,
-  higherGeographyID TEXT,
-  higherGeography TEXT,
+  location_id TEXT PRIMARY KEY,
+  parent_location_id TEXT REFERENCES location ON DELETE CASCADE,
+  higher_geography_id TEXT,
+  higher_geography TEXT,
   continent TEXT,
-  waterBody TEXT,
-  islandGroup TEXT,
+  water_body TEXT,
+  island_group TEXT,
   island TEXT,
   country TEXT,
-  countryCode TEXT,
-  stateProvince TEXT,
+  country_code CHAR(2),
+  state_province TEXT,
   county TEXT,
   municipality TEXT,
   locality TEXT,
-  minimumElevationInMeters NUMERIC,
-  maximumElevationInMeters NUMERIC,
-  verticalDatum TEXT,
-  minimumDistanceAboveSurfaceInMeters NUMERIC,
-  maximumDistanceAboveSurfaceInMeters NUMERIC,
-  locationAccordingTo TEXT,
-  locationRemarks TEXT
+  minimum_elevation_in_meters NUMERIC CHECK (minimum_elevation_in_meters BETWEEN -430 AND 8850),
+  maximum_elevation_in_meters NUMERIC CHECK (maximum_elevation_in_meters BETWEEN -430 AND 8850),
+  vertical_datum TEXT,
+  minimum_distance_above_surface_in_meters NUMERIC CHECK (minimum_distance_above_surface_in_meters BETWEEN -12000 AND 100000),
+  maximum_distance_above_surface_in_meters NUMERIC CHECK (maximum_distance_above_surface_in_meters BETWEEN -12000 AND 100000),
+  location_accordingTo TEXT,
+  location_remarks TEXT
 );
-CREATE INDEX ON location(parentLocationID);
+CREATE INDEX ON location(parent_location_id);
 
 CREATE TABLE geological_context (
-  geologicalContextID TEXT PRIMARY KEY,
-  locationID TEXT REFERENCES location ON DELETE CASCADE,
-  earliestEonOrLowestEonothem TEXT,
-  latestEonOrHighestEonothem TEXT,
-  earliestEraOrLowestErathem TEXT,
-  latestEraOrHighestErathem TEXT,
-  earliestPeriodOrLowestSystem TEXT,
-  latestPeriodOrHighestSystem TEXT,
-  earliestEpochOrLowestSeries TEXT,
-  latestEpochOrHighestSeries TEXT,
-  earliestAgeOrLowestStage TEXT,
-  latestAgeOrHighestStage TEXT,
-  lowestBiostratigraphicZone TEXT,
-  highestBiostratigraphicZone TEXT,
-  lithostratigraphicTerms TEXT,
+  geological_context_id TEXT PRIMARY KEY,
+  location_id TEXT REFERENCES location ON DELETE CASCADE,
+  earliest_eon_or_lowest_eonothem TEXT,
+  latest_eon_or_highest_eonothem TEXT,
+  earliest_era_or_lowest_erathem TEXT,
+  latest_era_or_highest_erathem TEXT,
+  earliest_period_or_lowest_system TEXT,
+  latest_period_or_highest_system TEXT,
+  earliest_epoch_or_lowest_series TEXT,
+  latest_epoch_or_highest_series TEXT,
+  earliest_age_or_lowest_stage TEXT,
+  latest_age_or_highest_stage TEXT,
+  lowest_biostratigraphic_zone TEXT,
+  highest_biostratigraphic_zone TEXT,
+  lithostratigraphic_terms TEXT,
   "group" TEXT,
   formation TEXT,
   member TEXT,
   bed TEXT
 );
-CREATE INDEX ON geological_context(locationID);
+CREATE INDEX ON geological_context(location_id);
 
 CREATE TABLE georeference (
-  locationID TEXT REFERENCES location ON DELETE CASCADE,
-  decimalLatitude NUMERIC NOT NULL CHECK (decimalLatitude BETWEEN -90 AND 90),
-  decimalLongitude NUMERIC NOT NULL CHECK (decimalLongitude BETWEEN -180 AND 180),
-  geodeticDatum TEXT NOT NULL,
-  coordinateUncertaintyInMeters NUMERIC CHECK (coordinateUncertaintyInMeters > 0),
-  coordinatePrecision NUMERIC CHECK (coordinatePrecision > 0),
-  pointRadiusSpatialFit NUMERIC CHECK (pointRadiusSpatialFit >= 0),
-  footprintWKT TEXT,
-  footprintSRS TEXT,
-  footprintSpatialFit NUMERIC CHECK (footprintSpatialFit >= 0),
-  georeferencedBy TEXT,
-  georeferencedDate TEXT,
-  georeferenceProtocol TEXT,
-  georeferenceSources TEXT,
-  georeferenceRemarks TEXT,
-  preferredSpatialRepresentation TEXT
+  location_id TEXT REFERENCES location ON DELETE CASCADE,
+  decimal_latitude NUMERIC NOT NULL CHECK (decimal_latitude BETWEEN -90 AND 90),
+  decimal_longitude NUMERIC NOT NULL CHECK (decimal_longitude BETWEEN -180 AND 180),
+  geodetic_datum TEXT NOT NULL,
+  coordinate_uncertainty_in_meters NUMERIC CHECK (coordinate_uncertainty_in_meters > 0),
+  coordinate_precision NUMERIC CHECK (coordinate_precision > 0),
+  point_radius_spatial_fit NUMERIC CHECK (point_radius_spatial_fit >= 0),
+  footprint_wkt TEXT,
+  footprint_srs TEXT,
+  footprint_spatial_fit NUMERIC CHECK (footprint_spatial_fit >= 0),
+  georeferenced_by TEXT,
+  georeferenced_date TEXT,
+  georeference_protocol TEXT,
+  georeference_sources TEXT,
+  georeference_remarks TEXT,
+  preferred_spatial_representation TEXT
 );
-CREATE INDEX ON georeference(locationID);
+CREATE INDEX ON georeference(location_id);
 
 
 
@@ -93,53 +93,53 @@ CREATE INDEX ON georeference(locationID);
 ---
 
 CREATE TABLE protocol (
-  protocolID TEXT PRIMARY KEY,
-  protocolType TEXT NOT NULL
+  protocol_id TEXT PRIMARY KEY,
+  protocol_type TEXT NOT NULL
 );
 
 CREATE TABLE reference (
-  referenceID TEXT PRIMARY KEY,
-  referenceType TEXT NOT NULL,
-  bibliographicCitation TEXT,
-  referenceYear integer,
-  referenceDOI TEXT,
-  isPeerReviewed BOOLEAN
+  reference_id TEXT PRIMARY KEY,
+  reference_type TEXT NOT NULL,
+  bibliographic_citation TEXT,
+  reference_year SMALLINT CHECK (reference_year BETWEEN 1600 AND 2022),
+  reference_doi TEXT,
+  is_peer_reviewed BOOLEAN
 );
 
 CREATE TABLE protocol_citation (
-  protocolID TEXT REFERENCES protocol,
-  protocolReferenceID TEXT REFERENCES reference,
-  protocolCitationType TEXT,
-  protocolCitationPageNumber TEXT,
-  protocolCitationRemarks TEXT,
-  PRIMARY KEY (protocolID, protocolReferenceID)
+  protocol_id TEXT REFERENCES protocol ON DELETE CASCADE,
+  protocol_reference_id TEXT REFERENCES reference ON DELETE CASCADE,
+  protocol_citation_type TEXT,
+  protocol_citation_page_number TEXT,
+  protocol_citation_remarks TEXT,
+  PRIMARY KEY (protocol_id, protocol_reference_id)
 );
-CREATE INDEX ON protocol_citation(protocolID, protocolReferenceID);
+CREATE INDEX ON protocol_citation(protocol_id, protocol_reference_id);
 
 CREATE TABLE event (
-  eventID TEXT PRIMARY KEY,
-  parentEventID TEXT REFERENCES event ON DELETE CASCADE,
-  eventType TEXT NOT NULL,
-  locationID TEXT REFERENCES location ON DELETE CASCADE,
-  protocolID TEXT REFERENCES protocol ON DELETE CASCADE,
-  eventDate TEXT,
-  verbatimEventDate TEXT,
-  verbatimLocality TEXT,
-  verbatimElevation TEXT,
-  verbatimDepth TEXT,
-  verbatimCoordinates TEXT,
-  verbatimLatitude TEXT,
-  verbatimLongitude TEXT,
-  verbatimCoordinateSystem TEXT,
-  verbatimSRS TEXT,
-  protocolDescription TEXT,
+  event_id TEXT PRIMARY KEY,
+  parent_event_id TEXT REFERENCES event ON DELETE CASCADE,
+  event_type TEXT NOT NULL,
+  location_id TEXT REFERENCES location ON DELETE CASCADE,
+  protocol_id TEXT REFERENCES protocol ON DELETE CASCADE,
+  event_date TEXT,
+  verbatim_event_date TEXT,
+  verbatim_locality TEXT,
+  verbatim_elevation TEXT,
+  verbatim_depth TEXT,
+  verbatim_coordinates TEXT,
+  verbatim_latitude TEXT,
+  verbatim_longitude TEXT,
+  verbatim_coordinate_system TEXT,
+  verbatim_srs TEXT,
+  protocol_description TEXT,
   habitat TEXT,
-  eventRemarks TEXT,
-  eventEffort TEXT
+  event_remarks TEXT,
+  event_effort TEXT
 );
-CREATE INDEX ON event(parentEventID);
-CREATE INDEX ON event(locationID);
-CREATE INDEX ON event(protocolID);
+CREATE INDEX ON event(parent_event_id);
+CREATE INDEX ON event(location_id);
+CREATE INDEX ON event(protocol_id);
 
 ---
 -- Entity, sub-entities and their relationships.
@@ -148,10 +148,10 @@ CREATE INDEX ON event(protocolID);
 -- inheritance model of:
 --
 --   Entity
---     DigitalEntity
---       GeneticSequence
---     MaterialEntity
---       MaterialGroup
+--     Digital_entity
+--       Genetic_sequence
+--     Material_entity
+--       Material_group
 --     Collection
 --     Organism
 ---
@@ -166,53 +166,54 @@ CREATE TYPE ENTITY_TYPE AS ENUM (
 );
 
 CREATE TABLE entity (
-  entityID TEXT PRIMARY KEY,
-  entityType ENTITY_TYPE NOT NULL,
-  entityRemarks TEXT
+  entity_id TEXT PRIMARY KEY,
+  entity_type ENTITY_TYPE NOT NULL,
+  dataset_id TEXT NOT NULL,
+  entity_remarks TEXT
 );
-CREATE INDEX ON entity(entityType);
+CREATE INDEX ON entity(entity_type);
 
 CREATE TABLE digital_entity (
-  digitalEntityID TEXT PRIMARY KEY REFERENCES entity ON DELETE CASCADE,
-  digitalEntityType TEXT NOT NULL,
-  accessURI TEXT NOT NULL,
-  webStatement TEXT,
+  digital_entity_id TEXT PRIMARY KEY REFERENCES entity ON DELETE CASCADE,
+  digital_entity_type TEXT NOT NULL,
+  access_uri TEXT NOT NULL,
+  web_statement TEXT,
   format TEXT,
   license TEXT,
-  accessRights TEXT,
-  rightsHolder TEXT
+  access_rights TEXT,
+  rights_holder TEXT
 );
 
 CREATE TABLE genetic_sequence (
-  geneticSequenceID TEXT PRIMARY KEY REFERENCES digital_entity ON DELETE CASCADE,
-  geneticSequenceType TEXT NOT NULL,
+  genetic_sequence_id TEXT PRIMARY KEY REFERENCES digital_entity ON DELETE CASCADE,
+  genetic_sequence_type TEXT NOT NULL,
   sequence TEXT NOT NULL
 );
 
 CREATE TABLE material_entity (
-  materialEntityID TEXT PRIMARY KEY REFERENCES entity ON DELETE CASCADE,
-  materialEntityType TEXT NOT NULL
+  material_entity_id TEXT PRIMARY KEY REFERENCES entity ON DELETE CASCADE,
+  material_entity_type TEXT NOT NULL
 );
 
 CREATE TABLE material_group (
-  materialGroupID TEXT PRIMARY KEY REFERENCES material_entity ON DELETE CASCADE,
-  materialGroupType TEXT
+  material_group_id TEXT PRIMARY KEY REFERENCES material_entity ON DELETE CASCADE,
+  material_group_type TEXT
 );
 
 CREATE TABLE collection (
-  collectionID TEXT PRIMARY KEY REFERENCES entity ON DELETE CASCADE,
-  collectionType TEXT,
-  collectionCode TEXT,
-  institutionCode TEXT,
-  grsciCollID UUID NOT NULL
+  collection_id TEXT PRIMARY KEY REFERENCES entity ON DELETE CASCADE,
+  collection_type TEXT,
+  collection_code TEXT,
+  institution_code TEXT,
+  grscicoll_id UUID NOT NULL
 );
 
 CREATE TABLE organism (
-  organismID TEXT PRIMARY KEY REFERENCES entity ON DELETE CASCADE,
-  organismScope TEXT,
-  organismQuantity TEXT,
-  organismQuantityType TEXT,
-  organismName TEXT
+  organism_id TEXT PRIMARY KEY REFERENCES entity ON DELETE CASCADE,
+  organism_scope TEXT,
+  organism_quantity TEXT,
+  organism_quantity_type TEXT,
+  organism_name TEXT
 );
 
 CREATE TYPE OCCURRENCE_STATUS AS ENUM (
@@ -221,33 +222,33 @@ CREATE TYPE OCCURRENCE_STATUS AS ENUM (
 );
 
 CREATE TABLE entity_event (
-  entityID TEXT REFERENCES entity ON DELETE CASCADE,
-  eventID TEXT REFERENCES event ON DELETE CASCADE,
-  occurrenceStatus OCCURRENCE_STATUS NOT NULL,
-  establishmentMeans TEXT,
+  entity_id TEXT REFERENCES entity ON DELETE CASCADE,
+  event_id TEXT REFERENCES event ON DELETE CASCADE,
+  occurrence_status OCCURRENCE_STATUS DEFAULT 'PRESENT' NOT NULL,
+  establishment_means TEXT,
   pathway TEXT,
-  degreeOfEstablishment TEXT,
+  degree_of_establishment TEXT,
   sex TEXT,
-  lifeStage TEXT,
-  reproductiveCondition TEXT,
+  life_stage TEXT,
+  reproductive_condition TEXT,
   behavior TEXT,
-  entityEventRemarks TEXT,
-  PRIMARY KEY (entityID, eventID)
+  entity_event_remarks TEXT,
+  PRIMARY KEY (entity_id, event_id)
 );
-CREATE INDEX ON entity_event(entityID, eventID);
+CREATE INDEX ON entity_event(entity_id, event_id);
 
 CREATE TABLE entity_relationship (
-  entityRelationshipID TEXT PRIMARY KEY,
-  dependsOnEntityRelationshipID TEXT REFERENCES entity_relationship ON DELETE CASCADE,
-  subjectEntityID TEXT REFERENCES entity ON DELETE CASCADE,
-  entityRelationshipType TEXT NOT NULL,
-  objectEntityID TEXT REFERENCES entity ON DELETE CASCADE,
-  objectEntityIRI TEXT,
-  entityRelationshipDate TEXT
+  entity_relationship_id TEXT PRIMARY KEY,
+  depends_on_entity_relationship_id TEXT REFERENCES entity_relationship ON DELETE CASCADE,
+  subject_entity_id TEXT REFERENCES entity ON DELETE CASCADE,
+  entity_relationship_type TEXT NOT NULL,
+  object_entity_id TEXT REFERENCES entity ON DELETE CASCADE,
+  object_entity_iRI TEXT,
+  entity_relationship_date TEXT
 );
-CREATE INDEX ON entity_relationship(dependsOnEntityRelationshipID);
-CREATE INDEX ON entity_relationship(subjectEntityID);
-CREATE INDEX ON entity_relationship(objectEntityID);
+CREATE INDEX ON entity_relationship(depends_on_entity_relationship_id);
+CREATE INDEX ON entity_relationship(subject_entity_id);
+CREATE INDEX ON entity_relationship(object_entity_id);
 
 
 ---
@@ -256,81 +257,80 @@ CREATE INDEX ON entity_relationship(objectEntityID);
 -- The identification may involve genetic material and a sequence.
 ---
 CREATE TABLE identification (
-  identificationID TEXT PRIMARY KEY,
-  identificationType TEXT NOT NULL,
-  taxonFormula TEXT NOT NULL,
-  verbatimIdentification TEXT,
-  typeStatus TEXT,
-  dateIdentified TEXT,
-  identificationVerificationStatus TEXT,
-  identificationRemarks TEXT,
-  isAcceptedIdentification BOOLEAN
+  identification_id TEXT PRIMARY KEY,
+  identification_type TEXT NOT NULL,
+  taxon_formula TEXT NOT NULL,
+  verbatim_identification TEXT,
+  type_status TEXT,
+  date_identified TEXT,
+  identification_verification_status TEXT,
+  identification_remarks TEXT,
+  is_accepted_identification BOOLEAN
 );
 
 CREATE TABLE identification_entity (
-  identificationID TEXT REFERENCES identification ON DELETE CASCADE,
-  entityID TEXT REFERENCES entity ON DELETE CASCADE,
-  PRIMARY KEY (identificationID, entityID)
+  identification_id TEXT REFERENCES identification ON DELETE CASCADE,
+  entity_id TEXT REFERENCES entity ON DELETE CASCADE,
+  PRIMARY KEY (identification_id, entity_id)
 );
 
+---
+-- It is expected that people would either use a normalised or denormalised form here.
+-- Normalized would use:
+--   taxon_id, parent_taxon_id, rank and status
+--
+-- Denormalized would use:
+--    
+---
 CREATE TABLE taxon (
-  taxonID TEXT PRIMARY KEY,
-  parentTaxonID TEXT REFERENCES taxon ON DELETE CASCADE,
-  scientificName TEXT NOT NULL,
-  scientificNameID TEXT,
-  acceptedNameUsageID TEXT,
-  parentNameUsageID TEXT,
-  originalNameUsageID TEXT,
-  taxonConceptID TEXT,
-  acceptedNameUsage TEXT,
-  parentNameUsage TEXT,
-  originalNameUsage TEXT,
-  higherClassification TEXT,
+  -- common to all
+  taxon_id TEXT PRIMARY KEY,
+  scientific_name TEXT NOT NULL,
+  scientific_name_authorship TEXT,
+  taxon_rank TEXT,
+  scientific_name_id TEXT,
+  vernacular_name TEXT,
+  taxon_remarks TEXT,  
+  
+  -- normalized view
+  parent_taxon_id TEXT REFERENCES taxon ON DELETE CASCADE,
+  taxonomic_status TEXT,
+
+  -- denormalized 
   kingdom TEXT,
   phylum TEXT,
   class TEXT,
   "order" TEXT,
   family TEXT,
   subfamily TEXT,
-  genericName TEXT,
+  genus TEXT,
   subgenus TEXT,
-  infragenericEpithet TEXT,
-  specificEpithet TEXT,
-  infraspecificEpithet TEXT,
-  cultivarEpithet TEXT,
-  taxonRank TEXT,
-  verbatimTaxonRank TEXT,
-  scientificNameAuthorship TEXT,
-  vernacularName TEXT,
-  nomenclaturalCode TEXT,
-  taxonomicStatus TEXT,
-  nomenclaturalStatus TEXT,
-  taxonRemarks TEXT
+  accepted_scientific_name TEXT -- populated only when scientific name is a synonym
 );
-CREATE INDEX ON taxon(parentTaxonID);
+CREATE INDEX ON taxon(parent_taxon_id);
 
 CREATE TABLE taxon_identification (
-  taxonID TEXT REFERENCES taxon ON DELETE CASCADE,
-  identificationID TEXT REFERENCES identification ON DELETE CASCADE,
-  taxonOrder NUMERIC NOT NULL CHECK (taxonOrder >= 0),
-  PRIMARY KEY (taxonID, identificationID)
+  taxon_id TEXT REFERENCES taxon ON DELETE CASCADE,
+  identification_id TEXT REFERENCES identification ON DELETE CASCADE,
+  taxon_order SMALLINT NOT NULL CHECK (taxon_order >= 0),
+  PRIMARY KEY (taxon_id, identification_id, taxon_order)
 );
 
 CREATE TABLE sequence_taxon (
-  taxonID TEXT REFERENCES taxon ON DELETE CASCADE,
-  geneticSequenceID TEXT REFERENCES genetic_sequence ON DELETE CASCADE,
-  sequenceTaxonAuthority TEXT,
-  taxonConfidencePercent NUMERIC NOT NULL CHECK (taxonConfidencePercent BETWEEN 0 AND 100),
-  PRIMARY KEY (taxonID, geneticSequenceID)
+  taxon_id TEXT REFERENCES taxon ON DELETE CASCADE,
+  genetic_sequence_id TEXT REFERENCES genetic_sequence ON DELETE CASCADE,
+  sequence_taxon_authority TEXT,
+  taxon_confidence_percent NUMERIC NOT NULL CHECK (taxon_confidence_percent BETWEEN 0 AND 100),
+  PRIMARY KEY (taxon_id, genetic_sequence_id)
 );
 
 CREATE TABLE identification_citation (
-  identificationID TEXT,
-  identificationReferenceID TEXT,
-  identificationCitationType TEXT,
-  identificationCitationPageNumber TEXT,
-  identificationCitationRemarks TEXT,
-  PRIMARY KEY (identificationID, identificationReferenceID)
+  identification_id TEXT,
+  identification_reference_id TEXT,
+  identification_citation_type TEXT,
+  identification_citation_page_number TEXT,
+  identification_citation_remarks TEXT,
+  PRIMARY KEY (identification_id, identification_reference_id)
 );
 
 
@@ -340,66 +340,66 @@ CREATE TABLE identification_citation (
 ---
 
 CREATE TABLE agent (
-  agentID TEXT PRIMARY KEY,
-  agentType TEXT NOT NULL,
-  preferredAgentName TEXT
+  agent_id TEXT PRIMARY KEY,
+  agent_type TEXT NOT NULL,
+  preferred_agent_name TEXT
 );
 
 CREATE TABLE agent_relationship (
-  subjectAgentID TEXT REFERENCES agent ON DELETE CASCADE,
-  relationshipTo TEXT NOT NULL,
-  objectAgentID TEXT REFERENCES agent ON DELETE CASCADE,
-  PRIMARY KEY (subjectAgentID, relationshipTo, objectAgentID)
+  subject_agent_id TEXT REFERENCES agent ON DELETE CASCADE,
+  relationship_to TEXT NOT NULL,
+  object_agent_id TEXT REFERENCES agent ON DELETE CASCADE,
+  PRIMARY KEY (subject_agent_id, relationship_to, object_agent_id)
 );
 
 CREATE TABLE collection_agent_role (
-  collectionID TEXT REFERENCES collection ON DELETE CASCADE,
-  agentID TEXT REFERENCES agent ON DELETE CASCADE,
-  collectionAgentRole TEXT NOT NULL,
-  collectionAgentRoleBegan TEXT,
-  collectionAgentRoleEnded TEXT,
-  collectionAgentRoleOrder SMALLINT NOT NULL CHECK (collectionAgentRoleOrder > 0),
-  PRIMARY KEY (collectionID, agentID, collectionAgentRoleOrder)
+  collection_id TEXT REFERENCES collection ON DELETE CASCADE,
+  agent_id TEXT REFERENCES agent ON DELETE CASCADE,
+  collection_agent_role TEXT NOT NULL,
+  collection_agent_role_began TEXT,
+  collection_agent_role_ended TEXT,
+  collection_agent_role_order SMALLINT NOT NULL CHECK (collection_agent_role_order >= 0),
+  PRIMARY KEY (collection_id, agent_id, collection_agent_role_order)
 );
 
 CREATE TABLE entity_agent_role (
-  entityID TEXT REFERENCES entity ON DELETE CASCADE,
-  agentID TEXT REFERENCES agent ON DELETE CASCADE,
-  entityAgentRole TEXT,
-  entityAgentRoleBegan TEXT,
-  entityAgentRoleEnded TEXT,
-  entityAgentRoleOrder SMALLINT NOT NULL CHECK (entityAgentRoleOrder > 0),
-  PRIMARY KEY (entityID, agentID, entityAgentRoleOrder)
+  entity_id TEXT REFERENCES entity ON DELETE CASCADE,
+  agent_id TEXT REFERENCES agent ON DELETE CASCADE,
+  entity_agent_role TEXT,
+  entity_agent_role_began TEXT,
+  entity_agent_role_ended TEXT,
+  entity_agent_role_order SMALLINT NOT NULL CHECK (entity_agent_role_order >= 0),
+  PRIMARY KEY (entity_id, agent_id, entity_agent_role_order)
 );
 
 CREATE TABLE event_agent_role (
-  eventID TEXT REFERENCES event ON DELETE CASCADE,
-  agentID TEXT REFERENCES agent ON DELETE CASCADE,
-  eventAgentRole TEXT,
-  eventAgentRoleBegan TEXT,
-  eventAgentRoleEnded TEXT,
-  eventAgentRoleOrder SMALLINT NOT NULL CHECK (eventAgentRoleOrder > 0),
-  PRIMARY KEY (eventID, agentID, eventAgentRoleOrder)
+  event_id TEXT REFERENCES event ON DELETE CASCADE,
+  agent_id TEXT REFERENCES agent ON DELETE CASCADE,
+  event_agent_role TEXT,
+  event_agent_role_began TEXT,
+  event_agent_role_ended TEXT,
+  event_agent_role_order SMALLINT NOT NULL CHECK (event_agent_role_order >= 0),
+  PRIMARY KEY (event_id, agent_id, event_agent_role_order)
 );
 
 CREATE TABLE identification_agent_role (
-  identificationID TEXT REFERENCES identification ON DELETE CASCADE,
-  agentID TEXT REFERENCES agent ON DELETE CASCADE,
-  identificationAgentRole TEXT,
-  identificationAgentRoleBegan TEXT,
-  identificationAgentRoleEnded TEXT,
-  identificationAgentRoleOrder SMALLINT NOT NULL CHECK (identificationAgentRoleOrder > 0),
-  PRIMARY KEY (identificationID, agentID, identificationAgentRoleOrder)
+  identification_id TEXT REFERENCES identification ON DELETE CASCADE,
+  agent_id TEXT REFERENCES agent ON DELETE CASCADE,
+  identification_agent_role TEXT,
+  identification_agent_role_began TEXT,
+  identification_agent_role_ended TEXT,
+  identification_agent_role_order SMALLINT NOT NULL CHECK (identification_agent_role_order >= 0),
+  PRIMARY KEY (identification_id, agent_id, identification_agent_role_order)
 );
 
 CREATE TABLE reference_agent_role (
-  referenceID TEXT REFERENCES reference ON DELETE CASCADE,
-  agentID TEXT REFERENCES agent ON DELETE CASCADE,
-  referenceAgentRole TEXT,
-  referenceAgentRoleBegan TEXT,
-  referenceAgentRoleEnded TEXT,
-  referenceAgentRoleOrder SMALLINT NOT NULL CHECK (referenceAgentRoleOrder > 0),
-  PRIMARY KEY (referenceID, agentID, referenceAgentRoleOrder)
+  reference_id TEXT REFERENCES reference ON DELETE CASCADE,
+  agent_id TEXT REFERENCES agent ON DELETE CASCADE,
+  reference_agent_role TEXT,
+  reference_agent_role_began TEXT,
+  reference_agent_role_ended TEXT,
+  reference_agent_role_order SMALLINT NOT NULL CHECK (reference_agent_role_order >= 0),
+  PRIMARY KEY (reference_id, agent_id, reference_agent_role_order)
 );
 
 
@@ -409,51 +409,51 @@ CREATE TABLE reference_agent_role (
 ---
 
 CREATE TABLE entity_assertion (
-  entityAssertionID TEXT PRIMARY KEY,
-  entityID TEXT NOT NULL REFERENCES entity ON DELETE CASCADE,
-  entityParentAssertionID TEXT REFERENCES entity_assertion ON DELETE CASCADE,
-  entityAssertionType TEXT NOT NULL,
-  entityAssertionMadeDate TEXT,
-  entityAssertionEffectiveDate TEXT,
-  entityAssertionValue TEXT,
-  entityAssertionValueNumeric NUMERIC,
-  entityAssertionUnit TEXT,
-  entityAssertionByAgentID TEXT REFERENCES agent ON DELETE CASCADE,
-  entityAssertionProtocol TEXT,
-  entityAssertionProtocolID TEXT,
-  entityAssertionRemarks TEXT
+  entity_assertion_id TEXT PRIMARY KEY,
+  entity_id TEXT NOT NULL REFERENCES entity ON DELETE CASCADE,
+  entityParent_assertion_id TEXT REFERENCES entity_assertion ON DELETE CASCADE,
+  entity_assertion_type TEXT NOT NULL,
+  entity_assertion_made_date TEXT,
+  entity_assertion_effective_date TEXT,
+  entity_assertion_value TEXT,
+  entity_assertion_value_numeric NUMERIC,
+  entity_assertion_unit TEXT,
+  entity_assertion_by_agent_id TEXT REFERENCES agent ON DELETE CASCADE,
+  entity_assertion_protocol TEXT,
+  entity_assertion_protocol_id TEXT,
+  entity_assertion_remarks TEXT
 );
 
 CREATE TABLE event_assertion (
-  eventID TEXT PRIMARY KEY,
-  eventAssertionID TEXT NOT NULL REFERENCES event ON DELETE CASCADE,
-  eventParentAssertionID TEXT REFERENCES event_assertion ON DELETE CASCADE,
-  eventAssertionType TEXT NOT NULL,
-  eventAssertionMadeDate TEXT,
-  eventAssertionEffectiveDate TEXT,
-  eventAssertionValue TEXT,
-  eventAssertionValueNumeric NUMERIC,
-  eventAssertionUnit TEXT,
-  eventAssertionByAgentID TEXT REFERENCES agent ON DELETE CASCADE,
-  eventAssertionProtocol TEXT,
-  eventAssertionProtocolID TEXT,
-  eventAssertionRemarks TEXT
+  event_id TEXT PRIMARY KEY,
+  event_assertion_id TEXT NOT NULL REFERENCES event ON DELETE CASCADE,
+  event_parent_assertion_id TEXT REFERENCES event_assertion ON DELETE CASCADE,
+  event_assertion_type TEXT NOT NULL,
+  event_assertion_made_date TEXT,
+  event_assertion_effective_date TEXT,
+  event_assertion_value TEXT,
+  event_assertion_value_numeric NUMERIC,
+  event_assertion_unit TEXT,
+  event_assertion_by_agent_id TEXT REFERENCES agent ON DELETE CASCADE,
+  event_assertion_protocol TEXT,
+  event_assertion_protocol_id TEXT,
+  event_assertion_remarks TEXT
 );
 
 CREATE TABLE location_assertion (
-  locationID TEXT PRIMARY KEY,
-  locationAssertionID TEXT NOT NULL REFERENCES location ON DELETE CASCADE,
-  locationParentAssertionID TEXT REFERENCES location_assertion ON DELETE CASCADE,
-  locationAssertionType TEXT NOT NULL,
-  locationAssertionMadeDate TEXT,
-  locationAssertionEffectiveDate TEXT,
-  locationAssertionValue TEXT,
-  locationAssertionValueNumeric NUMERIC,
-  locationAssertionUnit TEXT,
-  locationAssertionByAgentID TEXT REFERENCES agent ON DELETE CASCADE,
-  locationAssertionProtocol TEXT,
-  locationAssertionProtocolID TEXT,
-  locationAssertionRemarks TEXT
+  location_id TEXT PRIMARY KEY,
+  location_assertion_id TEXT NOT NULL REFERENCES location ON DELETE CASCADE,
+  location_parent_assertion_id TEXT REFERENCES location_assertion ON DELETE CASCADE,
+  location_assertion_type TEXT NOT NULL,
+  location_assertion_made_date TEXT,
+  location_assertion_effective_date TEXT,
+  location_assertion_value TEXT,
+  location_assertion_value_numeric NUMERIC,
+  location_assertion_unit TEXT,
+  location_assertion_by_agent_id TEXT REFERENCES agent ON DELETE CASCADE,
+  location_assertion_protocol TEXT,
+  location_assertion_protocol_id TEXT,
+  location_assertion_remarks TEXT
 );
 
 
@@ -463,30 +463,30 @@ CREATE TABLE location_assertion (
 ---
 
 CREATE TABLE agent_identifier (
-  agentID TEXT REFERENCES agent ON DELETE CASCADE,
-  agentIdentifier TEXT NOT NULL,
-  agentIdentifierType TEXT,
-  PRIMARY KEY (agentID, agentIdentifier, agentIdentifierType)
+  agent_id TEXT REFERENCES agent ON DELETE CASCADE,
+  agent_identifier TEXT NOT NULL,
+  agent_identifier_type TEXT,
+  PRIMARY KEY (agent_id, agent_identifier, agent_identifier_type)
 );
 
 
 CREATE TABLE collection_identifier (
-  collectionID TEXT REFERENCES collection ON DELETE CASCADE,
-  collectionIdentifier TEXT,
-  collectionIdentifierType TEXT,
-  PRIMARY KEY (collectionID, collectionIdentifier, collectionIdentifierType)
+  collection_id TEXT REFERENCES collection ON DELETE CASCADE,
+  collection_identifier TEXT,
+  collection_identifier_type TEXT,
+  PRIMARY KEY (collection_id, collection_identifier, collection_identifier_type)
 );
 
 CREATE TABLE entity_identifier (
-  entityID TEXT REFERENCES entity ON DELETE CASCADE,
-  entityIdentifier TEXT NOT NULL,
-  entityIdentifierType TEXT NOT NULL,
-  PRIMARY KEY (entityID, entityIdentifier, entityIdentifierType)
+  entity_id TEXT REFERENCES entity ON DELETE CASCADE,
+  entity_identifier TEXT NOT NULL,
+  entity_identifier_type TEXT NOT NULL,
+  PRIMARY KEY (entity_id, entity_identifier, entity_identifier_type)
 );
 
 CREATE TABLE event_identifier (
-  eventID TEXT REFERENCES event ON DELETE CASCADE,
-  eventIdentifier TEXT NOT NULL,
-  eventIdentifierType TEXT  NOT NULL,
-  PRIMARY KEY (eventID, eventIdentifier, eventIdentifierType)
+  event_id TEXT REFERENCES event ON DELETE CASCADE,
+  event_identifier TEXT NOT NULL,
+  event_identifier_type TEXT  NOT NULL,
+  PRIMARY KEY (event_id, event_identifier, event_identifier_type)
 );
