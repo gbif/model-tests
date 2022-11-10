@@ -73,9 +73,9 @@ CREATE TABLE georeference (
   decimal_latitude NUMERIC NOT NULL CHECK (decimal_latitude BETWEEN -90 AND 90),
   decimal_longitude NUMERIC NOT NULL CHECK (decimal_longitude BETWEEN -180 AND 180),
   geodetic_datum TEXT NOT NULL,
-  coordinate_uncertainty_in_meters NUMERIC CHECK (coordinate_uncertainty_in_meters > 0),
-  coordinate_precision NUMERIC CHECK (coordinate_precision > 0),
-  point_radius_spatial_fit NUMERIC CHECK (point_radius_spatial_fit >= 0),
+  coordinate_uncertainty_in_meters NUMERIC CHECK (coordinate_uncertainty_in_meters > 0 AND coordinate_uncertainty_in_meters <= 20037509),
+  coordinate_precision NUMERIC CHECK (coordinate_precision BETWEEN 0 AND 90),
+  point_radius_spatial_fit NUMERIC CHECK (point_radius_spatial_fit = 0 OR point_radius_spatial_fit>=1),
   footprint_wkt TEXT,
   footprint_srs TEXT,
   footprint_spatial_fit NUMERIC CHECK (footprint_spatial_fit >= 0),
@@ -185,7 +185,8 @@ CREATE TABLE digital_entity (
   format TEXT,
   license TEXT,
   access_rights TEXT,
-  rights_holder TEXT
+  rights_holder TEXT,
+  created TIMESTAMPTZ
 );
 
 CREATE TABLE genetic_sequence (
@@ -220,18 +221,43 @@ CREATE TABLE organism (
   organism_name TEXT
 );
 
-CREATE TYPE OCCURRENCE_STATUS AS ENUM (
-  'PRESENT',
-  'ABSENT'
+CREATE TYPE OCCURRENCE_STATUS AS ENUM ('PRESENT', 'ABSENT');
+
+CREATE TYPE ESTABLISHMENT_MEANS AS ENUM (
+  'NATIVE_INDIGENOUS', 'NATIVE_REINTRODUCED', 'INTRODUCED',
+  'INTRODUCED_ASSISTED_RECOLONISATION', 'VAGRANT', 'UNCERTAIN'
+);
+
+CREATE TYPE PATHWAY AS ENUM (
+  'CORRIDOR_AND_DISPERSAL', 'UNAIDED', 'NATURAL_DISPERSAL', 'CORRIDOR',
+  'TUNNELS_BRIDGES', 'WATERWAYS_BASINS_SEAS', 'UNINTENTIONAL', 'TRANSPORT_STOWAWAY',
+  'OTHER_TRANSPORT', 'VEHICLES', 'HULL_FOULING', 'BALLAST_WATER', 'PACKING_MATERIAL',
+  'PEOPLE', 'MACHINERY_EQUIPMENT', 'HITCHHIKERS_SHIP', 'HITCHHIKERS_AIRPLANE',
+  'CONTAINER_BULK', 'FISHING_EQUIPMENT', 'TRANSPORT_CONTAMINANT',
+  'TRANSPORTATION_HABITAT_MATERIAL', 'TIMBER_TRADE', 'SEED_CONTAMINANT',
+  'PARASITES_ON_PLANTS', 'CONTAMINANT_ON_PLANTS', 'PARASITES_ON_ANIMALS',
+  'CONTAMINANT_ON_ANIMALS', 'FOOD_CONTAMINANT', 'CONTAMINATE_BAIT', 'CONTAMINANT_NURSERY',
+  'INTENTIONAL', 'ESCAPE_FROM_CONFINEMENT', 'OTHER_ESCAPE', 'LIVE_FOOD_LIVE_BAIT',
+  'RESEARCH', 'ORNAMENTAL_NON_HORTICULTURE', 'HORTICULTURE', 'FUR', 'FORESTRY',
+  'FARMED_ANIMALS', 'PET', 'PUBLIC_GARDEN_ZOO_AQUARIA', 'AQUACULTURE_MARICULTURE',
+  'AGRICULTURE', 'RELEASE_IN_NATURE', 'OTHER_INTENTIONAL_RELEASE', 'RELEASED_FOR_USE',
+  'CONSERVATION_OR_WILDLIFE_MANAGEMENT', 'LANDSCAPE_IMPROVEMENT', 'HUNTING',
+  'FISHERY_IN_THE_WILD', 'EROSION_CONTROL', 'BIOLOGICAL_CONTROL'
+);
+
+CREATE TYPE DEGREE_OF_ESTABLISHMENT AS ENUM (
+'MANAGED','CAPTIVE','CULTIVATED','RELEASED','UNESTABLISHED','FAILING','CASUAL',
+'NATURALIZED','REPRODUCING','ESTABLISHED','SPREADING','WIDESPREAD_INVASIVE','COLONISING',
+'INVASIVE','NATIVE'
 );
 
 CREATE TABLE entity_event (
   entity_id TEXT REFERENCES entity ON DELETE CASCADE,
   event_id TEXT REFERENCES event ON DELETE CASCADE,
   occurrence_status OCCURRENCE_STATUS DEFAULT 'PRESENT' NOT NULL,
-  establishment_means TEXT,
-  pathway TEXT,
-  degree_of_establishment TEXT,
+  establishment_means ESTABLISHMENT_MEANS,
+  pathway PATHWAY,
+  degree_of_establishment DEGREE_OF_ESTABLISHMENT,
   sex TEXT,
   life_stage TEXT,
   reproductive_condition TEXT,
@@ -248,7 +274,8 @@ CREATE TABLE entity_relationship (
   entity_relationship_type TEXT NOT NULL,
   object_entity_id TEXT REFERENCES entity ON DELETE CASCADE,
   object_entity_iri TEXT,
-  entity_relationship_date TEXT
+  entity_relationship_date TEXT,
+  entity_relationship_order SMALLINT NOT NULL DEFAULT 0 CHECK (entity_relationship_order >= 0) 
 );
 CREATE INDEX ON entity_relationship(depends_on_entity_relationship_id);
 CREATE INDEX ON entity_relationship(subject_entity_id);
@@ -311,7 +338,7 @@ CREATE INDEX ON taxon(parent_taxon_id);
 CREATE TABLE taxon_identification (
   taxon_id TEXT REFERENCES taxon ON DELETE CASCADE,
   identification_id TEXT REFERENCES identification ON DELETE CASCADE,
-  taxon_order SMALLINT NOT NULL CHECK (taxon_order >= 0),
+  taxon_order SMALLINT NOT NULL CHECK (taxon_order >= 0) DEFAULT 0,
   PRIMARY KEY (taxon_id, identification_id, taxon_order)
 );
 
@@ -357,7 +384,7 @@ CREATE TABLE collection_agent_role (
   collection_agent_role TEXT NOT NULL,
   collection_agent_role_began TEXT,
   collection_agent_role_ended TEXT,
-  collection_agent_role_order SMALLINT NOT NULL CHECK (collection_agent_role_order >= 0),
+  collection_agent_role_order SMALLINT NOT NULL CHECK (collection_agent_role_order >= 0) DEFAULT 0,
   PRIMARY KEY (collection_id, agent_id, collection_agent_role_order)
 );
 
@@ -367,7 +394,7 @@ CREATE TABLE entity_agent_role (
   entity_agent_role TEXT,
   entity_agent_role_began TEXT,
   entity_agent_role_ended TEXT,
-  entity_agent_role_order SMALLINT NOT NULL CHECK (entity_agent_role_order >= 0),
+  entity_agent_role_order SMALLINT NOT NULL CHECK (entity_agent_role_order >= 0) DEFAULT 0,
   PRIMARY KEY (entity_id, agent_id, entity_agent_role_order)
 );
 
@@ -377,7 +404,7 @@ CREATE TABLE event_agent_role (
   event_agent_role TEXT,
   event_agent_role_began TEXT,
   event_agent_role_ended TEXT,
-  event_agent_role_order SMALLINT NOT NULL CHECK (event_agent_role_order >= 0),
+  event_agent_role_order SMALLINT NOT NULL CHECK (event_agent_role_order >= 0) DEFAULT 0,
   PRIMARY KEY (event_id, agent_id, event_agent_role_order)
 );
 
@@ -387,7 +414,7 @@ CREATE TABLE identification_agent_role (
   identification_agent_role TEXT,
   identification_agent_role_began TEXT,
   identification_agent_role_ended TEXT,
-  identification_agent_role_order SMALLINT NOT NULL CHECK (identification_agent_role_order >= 0),
+  identification_agent_role_order SMALLINT NOT NULL CHECK (identification_agent_role_order >= 0) DEFAULT 0,
   PRIMARY KEY (identification_id, agent_id, identification_agent_role_order)
 );
 
@@ -397,7 +424,7 @@ CREATE TABLE reference_agent_role (
   reference_agent_role TEXT,
   reference_agent_role_began TEXT,
   reference_agent_role_ended TEXT,
-  reference_agent_role_order SMALLINT NOT NULL CHECK (reference_agent_role_order >= 0),
+  reference_agent_role_order SMALLINT NOT NULL CHECK (reference_agent_role_order >= 0) DEFAULT 0,
   PRIMARY KEY (reference_id, agent_id, reference_agent_role_order)
 );
 
@@ -417,6 +444,7 @@ CREATE TABLE entity_assertion (
   entity_assertion_value TEXT,
   entity_assertion_value_numeric NUMERIC,
   entity_assertion_unit TEXT,
+  entity_assertion_by_agent_name TEXT, 
   entity_assertion_by_agent_id TEXT REFERENCES agent ON DELETE CASCADE,
   entity_assertion_protocol TEXT,
   entity_assertion_protocol_id TEXT,
@@ -433,6 +461,7 @@ CREATE TABLE event_assertion (
   event_assertion_value TEXT,
   event_assertion_value_numeric NUMERIC,
   event_assertion_unit TEXT,
+  event_assertion_by_agent_name TEXT, 
   event_assertion_by_agent_id TEXT REFERENCES agent ON DELETE CASCADE,
   event_assertion_protocol TEXT,
   event_assertion_protocol_id TEXT,
@@ -449,6 +478,7 @@ CREATE TABLE location_assertion (
   location_assertion_value TEXT,
   location_assertion_value_numeric NUMERIC,
   location_assertion_unit TEXT,
+  location_assertion_by_agent_name TEXT, 
   location_assertion_by_agent_id TEXT REFERENCES agent ON DELETE CASCADE,
   location_assertion_protocol TEXT,
   location_assertion_protocol_id TEXT,
